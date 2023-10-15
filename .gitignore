@@ -1,0 +1,37 @@
+# macOS
+.DS_Store
+
+# Xcode
+xcuserdata/
+*.xcworkspace/
+!*.xcworkspace/xcshareddata/
+*.xcuserdatad/
+*.swiftpm/
+*.playground/
+*.timeline/
+DerivedData/
+
+# Build products
+Build/
+*.o
+*.~[hc]
+
+# Swift Package Manager
+Package.pins
+.build/
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Checkouts
+Carthage/Build
+
+# Dependencies
+/swift-package-deps
+
+# AppCode
+.idea/
+.idea_modules/
+

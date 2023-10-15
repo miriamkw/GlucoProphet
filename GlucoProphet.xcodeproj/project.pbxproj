@@ -8,18 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		06EA7E852ADC47F100752533 /* GlucoProphetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7E842ADC47F100752533 /* GlucoProphetApp.swift */; };
-		06EA7E872ADC47F100752533 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7E862ADC47F100752533 /* ContentView.swift */; };
+		06EA7E872ADC47F100752533 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7E862ADC47F100752533 /* MainView.swift */; };
 		06EA7E892ADC47F200752533 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06EA7E882ADC47F200752533 /* Assets.xcassets */; };
 		06EA7E8D2ADC47F200752533 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06EA7E8C2ADC47F200752533 /* Preview Assets.xcassets */; };
+		06EA7E972ADC5D1B00752533 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7E962ADC5D1B00752533 /* MainViewController.swift */; };
+		06EA7E992ADC5D5A00752533 /* BloodGlucoseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7E982ADC5D5A00752533 /* BloodGlucoseStore.swift */; };
+		06EA7E9B2ADC5D6700752533 /* BloodGlucoseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7E9A2ADC5D6700752533 /* BloodGlucoseModel.swift */; };
+		06EA7E9D2ADC5D7100752533 /* CarbohydrateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7E9C2ADC5D7100752533 /* CarbohydrateStore.swift */; };
+		06EA7E9F2ADC5D7800752533 /* InsulinStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7E9E2ADC5D7800752533 /* InsulinStore.swift */; };
+		06EA7EA22ADC5ECC00752533 /* HealthKitSetupAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7EA12ADC5ECC00752533 /* HealthKitSetupAssistant.swift */; };
+		06EA7EA42ADC5ED700752533 /* HealthKitDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7EA32ADC5ED700752533 /* HealthKitDataStore.swift */; };
+		06EA7EA72ADC5F6C00752533 /* HKUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7EA62ADC5F6C00752533 /* HKUnit.swift */; };
+		06EA7EA92ADC67C300752533 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 06EA7EA82ADC67C300752533 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		06EA7E812ADC47F100752533 /* GlucoProphet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlucoProphet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06EA7E842ADC47F100752533 /* GlucoProphetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlucoProphetApp.swift; sourceTree = "<group>"; };
-		06EA7E862ADC47F100752533 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		06EA7E862ADC47F100752533 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		06EA7E882ADC47F200752533 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06EA7E8A2ADC47F200752533 /* GlucoProphet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GlucoProphet.entitlements; sourceTree = "<group>"; };
 		06EA7E8C2ADC47F200752533 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		06EA7E962ADC5D1B00752533 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		06EA7E982ADC5D5A00752533 /* BloodGlucoseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodGlucoseStore.swift; sourceTree = "<group>"; };
+		06EA7E9A2ADC5D6700752533 /* BloodGlucoseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodGlucoseModel.swift; sourceTree = "<group>"; };
+		06EA7E9C2ADC5D7100752533 /* CarbohydrateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbohydrateStore.swift; sourceTree = "<group>"; };
+		06EA7E9E2ADC5D7800752533 /* InsulinStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsulinStore.swift; sourceTree = "<group>"; };
+		06EA7EA12ADC5ECC00752533 /* HealthKitSetupAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetupAssistant.swift; sourceTree = "<group>"; };
+		06EA7EA32ADC5ED700752533 /* HealthKitDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitDataStore.swift; sourceTree = "<group>"; };
+		06EA7EA62ADC5F6C00752533 /* HKUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKUnit.swift; sourceTree = "<group>"; };
+		06EA7EA82ADC67C300752533 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +54,7 @@
 		06EA7E782ADC47F100752533 = {
 			isa = PBXGroup;
 			children = (
+				06EA7EA82ADC67C300752533 /* .gitignore */,
 				06EA7E832ADC47F100752533 /* GlucoProphet */,
 				06EA7E822ADC47F100752533 /* Products */,
 			);
@@ -53,9 +72,13 @@
 			isa = PBXGroup;
 			children = (
 				06EA7E842ADC47F100752533 /* GlucoProphetApp.swift */,
-				06EA7E862ADC47F100752533 /* ContentView.swift */,
-				06EA7E882ADC47F200752533 /* Assets.xcassets */,
+				06EA7E952ADC562200752533 /* Controllers */,
+				06EA7E942ADC561300752533 /* Views */,
+				06EA7E932ADC55FC00752533 /* Models */,
+				06EA7EA02ADC5EBB00752533 /* Helpers */,
+				06EA7EA52ADC5F5E00752533 /* Extensions */,
 				06EA7E8A2ADC47F200752533 /* GlucoProphet.entitlements */,
+				06EA7E882ADC47F200752533 /* Assets.xcassets */,
 				06EA7E8B2ADC47F200752533 /* Preview Content */,
 			);
 			path = GlucoProphet;
@@ -67,6 +90,50 @@
 				06EA7E8C2ADC47F200752533 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		06EA7E932ADC55FC00752533 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				06EA7E982ADC5D5A00752533 /* BloodGlucoseStore.swift */,
+				06EA7E9A2ADC5D6700752533 /* BloodGlucoseModel.swift */,
+				06EA7E9C2ADC5D7100752533 /* CarbohydrateStore.swift */,
+				06EA7E9E2ADC5D7800752533 /* InsulinStore.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		06EA7E942ADC561300752533 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				06EA7E862ADC47F100752533 /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		06EA7E952ADC562200752533 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				06EA7E962ADC5D1B00752533 /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		06EA7EA02ADC5EBB00752533 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				06EA7EA12ADC5ECC00752533 /* HealthKitSetupAssistant.swift */,
+				06EA7EA32ADC5ED700752533 /* HealthKitDataStore.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		06EA7EA52ADC5F5E00752533 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				06EA7EA62ADC5F6C00752533 /* HKUnit.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06EA7E8D2ADC47F200752533 /* Preview Assets.xcassets in Resources */,
+				06EA7EA92ADC67C300752533 /* .gitignore in Resources */,
 				06EA7E892ADC47F200752533 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,7 +207,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06EA7E872ADC47F100752533 /* ContentView.swift in Sources */,
+				06EA7EA72ADC5F6C00752533 /* HKUnit.swift in Sources */,
+				06EA7E972ADC5D1B00752533 /* MainViewController.swift in Sources */,
+				06EA7EA22ADC5ECC00752533 /* HealthKitSetupAssistant.swift in Sources */,
+				06EA7E9D2ADC5D7100752533 /* CarbohydrateStore.swift in Sources */,
+				06EA7E9B2ADC5D6700752533 /* BloodGlucoseModel.swift in Sources */,
+				06EA7E9F2ADC5D7800752533 /* InsulinStore.swift in Sources */,
+				06EA7EA42ADC5ED700752533 /* HealthKitDataStore.swift in Sources */,
+				06EA7E992ADC5D5A00752533 /* BloodGlucoseStore.swift in Sources */,
+				06EA7E872ADC47F100752533 /* MainView.swift in Sources */,
 				06EA7E852ADC47F100752533 /* GlucoProphetApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +350,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow access to read from Apple Health to allow for real time blood glucose predictions.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -284,7 +361,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
@@ -312,6 +389,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow access to read from Apple Health to allow for real time blood glucose predictions.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -322,7 +400,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
