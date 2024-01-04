@@ -42,14 +42,13 @@ struct MainView: View {
                             )
                             .symbolSize(50.0)
                             .foregroundStyle(getColor(value: series.value))
-                            
                         }
                         ForEach(controller.predictedValues, id: \.id) { series in
-                            LineMark(
+                            PointMark(
                                 x: .value("Date", series.date),
                                 y: .value("Glucose value", series.value)
                             )
-                            //.symbolSize(20.0)
+                            .symbolSize(50.0)
                             .foregroundStyle(getColor(value: series.value))
                             .interpolationMethod(.cardinal)
                         }
