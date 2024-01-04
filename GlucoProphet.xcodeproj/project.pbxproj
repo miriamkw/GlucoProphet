@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		068E1CB12B46FCE800CCF8E4 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E1CB02B46FCE800CCF8E4 /* BaseModel.swift */; };
+		068E1CB32B46FE2B00CCF8E4 /* ExampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E1CB22B46FE2B00CCF8E4 /* ExampleModel.swift */; };
 		06EA7E852ADC47F100752533 /* GlucoProphetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7E842ADC47F100752533 /* GlucoProphetApp.swift */; };
 		06EA7E872ADC47F100752533 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7E862ADC47F100752533 /* MainView.swift */; };
 		06EA7E892ADC47F200752533 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06EA7E882ADC47F200752533 /* Assets.xcassets */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		068E1CB02B46FCE800CCF8E4 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		068E1CB22B46FE2B00CCF8E4 /* ExampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleModel.swift; sourceTree = "<group>"; };
 		06EA7E812ADC47F100752533 /* GlucoProphet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlucoProphet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06EA7E842ADC47F100752533 /* GlucoProphetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlucoProphetApp.swift; sourceTree = "<group>"; };
 		06EA7E862ADC47F100752533 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -51,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		068E1CAF2B46FCCD00CCF8E4 /* PredictionModels */ = {
+			isa = PBXGroup;
+			children = (
+				068E1CB02B46FCE800CCF8E4 /* BaseModel.swift */,
+				068E1CB22B46FE2B00CCF8E4 /* ExampleModel.swift */,
+			);
+			path = PredictionModels;
+			sourceTree = "<group>";
+		};
 		06EA7E782ADC47F100752533 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +88,7 @@
 				06EA7E952ADC562200752533 /* Controllers */,
 				06EA7E942ADC561300752533 /* Views */,
 				06EA7E932ADC55FC00752533 /* Models */,
+				068E1CAF2B46FCCD00CCF8E4 /* PredictionModels */,
 				06EA7EA02ADC5EBB00752533 /* Helpers */,
 				06EA7EA52ADC5F5E00752533 /* Extensions */,
 				06EA7E8A2ADC47F200752533 /* GlucoProphet.entitlements */,
@@ -209,6 +223,8 @@
 			files = (
 				06EA7EA72ADC5F6C00752533 /* HKUnit.swift in Sources */,
 				06EA7E972ADC5D1B00752533 /* MainViewController.swift in Sources */,
+				068E1CB32B46FE2B00CCF8E4 /* ExampleModel.swift in Sources */,
+				068E1CB12B46FCE800CCF8E4 /* BaseModel.swift in Sources */,
 				06EA7EA22ADC5ECC00752533 /* HealthKitSetupAssistant.swift in Sources */,
 				06EA7E9D2ADC5D7100752533 /* CarbohydrateStore.swift in Sources */,
 				06EA7E9B2ADC5D6700752533 /* BloodGlucoseModel.swift in Sources */,

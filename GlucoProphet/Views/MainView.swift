@@ -23,9 +23,9 @@ struct MainView: View {
                                 y: .value("Glucose value", series.value)
                             )
                             .foregroundStyle(
-                                Gradient(colors: [Color.gray.opacity(0.5),
+                                Gradient(colors: [Color.gray.opacity(0.6),
+                                                  Color.gray.opacity(0.2),
                                                   Color.gray.opacity(0.1),
-                                                  Color.gray.opacity(0.0),
                                                   Color.gray.opacity(0.0),
                                                   Color.gray.opacity(0.0)]))
                             .interpolationMethod(.cardinal)

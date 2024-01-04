@@ -17,7 +17,7 @@ class BloodGlucoseStore : ObservableObject {
     static let shared = BloodGlucoseStore()
     private let timeInterval = 60*60
     
-    func starObserver(completion: @escaping () -> Swift.Void, updateHandler: @escaping () -> Swift.Void) {
+    func startObserver(completion: @escaping () -> Swift.Void, updateHandler: @escaping () -> Swift.Void) {
         self.healthKitDataStore.getSamples(for: getGlucoseLevelSampleType(), start: Date().addingTimeInterval(-TimeInterval(timeInterval)), completion: { (samples, deleted) in
             self.setBloodGlucoseValues(samples: samples, deleted: deleted) {
                 completion()
