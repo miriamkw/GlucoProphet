@@ -30,8 +30,30 @@ class MainViewController: NSObject, ObservableObject {
     private let bgStore = BloodGlucoseStore.shared
     private let insulinStore = InsulinStore.shared
     private let carbStore = CarbohydrateStore.shared
-   
     
+    // UI state variables
+    @Published var tempBasal = 0.9 {
+        didSet {
+            if !(tempBasal == oldValue) {
+                fetchPredictions()
+            }
+        }
+    }
+    @Published var addedBolus = 0.0 {
+        didSet {
+            if !(addedBolus == oldValue) {
+                fetchPredictions()
+            }
+        }
+    }
+    @Published var addedCarbs = 0.0 {
+        didSet {
+            if !(addedCarbs == oldValue) {
+                fetchPredictions()
+            }
+        }
+    }
+   
     /// This method is triggered on the launch of the application and does the following:
     /// 1) A dispatchgroup makes sure that all the different datatypes are fetched that is needed as an input in the machine learning model for the first prediction
     /// 2) At the same time, the updateHandlers for the HealthKit queries are triggered, and initialized to evoke new blood glucose predictions when a sample is added/deleted
