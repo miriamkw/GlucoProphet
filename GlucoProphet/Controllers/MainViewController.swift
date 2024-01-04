@@ -30,6 +30,7 @@ class MainViewController: NSObject, ObservableObject {
     private let bgStore = BloodGlucoseStore.shared
     private let insulinStore = InsulinStore.shared
     private let carbStore = CarbohydrateStore.shared
+    private let predictionModel = ExampleModel(identifier: "ExampleModel")
     
     // UI state variables
     @Published var tempBasal = 0.9 {
@@ -64,7 +65,8 @@ class MainViewController: NSObject, ObservableObject {
         // DispatchGroup makes sure all values from HealthKit are fetched before we call the first prediction
                 
         let group = DispatchGroup()
-        // First group is fetching glucose values, make sure it finished before making predictions
+                
+        // First group is fetching glucose values, make sure it finished before the first prediction is called
         /*
         // Get relevant insulin values
         group.enter()
@@ -83,7 +85,7 @@ class MainViewController: NSObject, ObservableObject {
         })*/
         
         group.enter()
-        self.bgStore.starObserver(completion: {
+        self.bgStore.startObserver(completion: {
             DispatchQueue.main.async {
                 self.pastValues = self.bgStore.bgSamples
             }
@@ -99,7 +101,6 @@ class MainViewController: NSObject, ObservableObject {
             }
         })
 
-        
         // TODO: This should be refetched more often than on launch of the application
         
         // Make predictions after we made sure that the glucose, carbs and insulin samples are collected
@@ -111,49 +112,9 @@ class MainViewController: NSObject, ObservableObject {
     
     /// This method calculates new blood glucose predictions based on the most recent stored data inputs.
     /// This method must always be called on the main thread, because it updates the UI.
-    ///
     private func fetchPredictions() {
-        var predictions: [BloodGlucoseModel] = []
-        guard let refSample = bgStore.bgSamples.last else {
-            fatalError("Failed to fetch last glucose value")
-        }
-        //var currentValue = refSample.value
-        let refSamples = bgStore.bgSamples.suffix(6)
-        if refSamples.count == 6 {
-            // Mean and stdev from dataset for standardization and destandardization
-            let mean = 159.76930886832153
-            let stdev = 60.379903503417154
-            var data = [Double]()
-            for sample in refSamples {
-                let val = (sample.value*18 - mean)/stdev
-                data.append(val)
-            }
-            guard let mlMultiArray = try? MLMultiArray(shape:[1,6,1], dataType: MLMultiArrayDataType.float32) else {
-                fatalError("Unexpected runtime error. MLMultiArray")
-            }
-            for (index, element) in data.enumerated() {
-                mlMultiArray[index] = NSNumber(floatLiteral: element)
-            }
-
-            let predConverted = 6.0
-            let newValue = (predConverted) < 2.0 ? 2.0 : predConverted
-            let newSample = BloodGlucoseModel(
-                id: UUID(),
-                date: refSample.date.addingTimeInterval(60*5*6),
-                value: newValue)
-            predictions.append(newSample)
-
-            let predConverted2 = 7.0
-            let newValue2 = (predConverted2) < 2.0 ? 2.0 : predConverted2
-            let newSample2 = BloodGlucoseModel(
-                id: UUID(),
-                date: refSample.date.addingTimeInterval(60*5*12),
-                value: newValue2)
-            predictions.append(newSample2)
-            
-            DispatchQueue.main.async {
-                self.predictedValues = predictions
-            }
+        DispatchQueue.main.async {
+            self.predictedValues = self.predictionModel.predict(tempBasal: self.tempBasal, addedBolus: self.addedBolus, addedCarbs: self.addedCarbs)
         }
     }
     
