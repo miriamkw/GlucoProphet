@@ -1,5 +1,5 @@
 //
-//  ExampleModel.swift
+//  MockModel.swift
 //  GlucoProphet
 //
 //  Created by Miriam K. Wolff on 04/01/2024.
@@ -8,7 +8,7 @@
 import Foundation
 
 // Example implementation of a class conforming to BaseModel
-class ExampleModel: BaseModel {
+class MockModel: BaseModel {
     let identifier: String
     private let bgStore = BloodGlucoseStore.shared
     

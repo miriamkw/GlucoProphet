@@ -136,6 +136,7 @@ struct MainView: View {
                     }
                 }
                 Section {
+                    /*
                     VStack {
                         // Change basal rate insulin slider
                         HStack {
@@ -144,7 +145,7 @@ struct MainView: View {
                             Text("\(controller.tempBasal, specifier: "%.1f") U/hr")
                         }
                         Slider(value: $controller.tempBasal, in: 0...2.0, step: 0.1)
-                    }
+                    }*/
                     VStack {
                         // Add bolus insulin slider
                         HStack {

@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		068E1CB12B46FCE800CCF8E4 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E1CB02B46FCE800CCF8E4 /* BaseModel.swift */; };
-		068E1CB32B46FE2B00CCF8E4 /* ExampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E1CB22B46FE2B00CCF8E4 /* ExampleModel.swift */; };
+		068E1CB32B46FE2B00CCF8E4 /* MockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E1CB22B46FE2B00CCF8E4 /* MockModel.swift */; };
+		06E120012B5A775A009A3AF7 /* LSTM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E120002B5A775A009A3AF7 /* LSTM.swift */; };
+		06E120032B5A7FD8009A3AF7 /* lstm__me__30.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120022B5A7FD8009A3AF7 /* lstm__me__30.mlpackage */; };
+		06E120052B5A806B009A3AF7 /* lstm__me__60.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120042B5A806B009A3AF7 /* lstm__me__60.mlpackage */; };
+		06E513102B4C3A400003A570 /* RidgeRegressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E5130F2B4C3A400003A570 /* RidgeRegressor.swift */; };
 		06EA7E852ADC47F100752533 /* GlucoProphetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7E842ADC47F100752533 /* GlucoProphetApp.swift */; };
 		06EA7E872ADC47F100752533 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7E862ADC47F100752533 /* MainView.swift */; };
 		06EA7E892ADC47F200752533 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06EA7E882ADC47F200752533 /* Assets.xcassets */; };
@@ -26,7 +30,11 @@
 
 /* Begin PBXFileReference section */
 		068E1CB02B46FCE800CCF8E4 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
-		068E1CB22B46FE2B00CCF8E4 /* ExampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleModel.swift; sourceTree = "<group>"; };
+		068E1CB22B46FE2B00CCF8E4 /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
+		06E120002B5A775A009A3AF7 /* LSTM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTM.swift; sourceTree = "<group>"; };
+		06E120022B5A7FD8009A3AF7 /* lstm__me__30.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__30.mlpackage; sourceTree = "<group>"; };
+		06E120042B5A806B009A3AF7 /* lstm__me__60.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__60.mlpackage; sourceTree = "<group>"; };
+		06E5130F2B4C3A400003A570 /* RidgeRegressor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidgeRegressor.swift; sourceTree = "<group>"; };
 		06EA7E812ADC47F100752533 /* GlucoProphet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlucoProphet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06EA7E842ADC47F100752533 /* GlucoProphetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlucoProphetApp.swift; sourceTree = "<group>"; };
 		06EA7E862ADC47F100752533 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -58,10 +66,22 @@
 		068E1CAF2B46FCCD00CCF8E4 /* PredictionModels */ = {
 			isa = PBXGroup;
 			children = (
+				06E120062B5A9D80009A3AF7 /* lstm */,
 				068E1CB02B46FCE800CCF8E4 /* BaseModel.swift */,
-				068E1CB22B46FE2B00CCF8E4 /* ExampleModel.swift */,
+				068E1CB22B46FE2B00CCF8E4 /* MockModel.swift */,
+				06E5130F2B4C3A400003A570 /* RidgeRegressor.swift */,
+				06E120002B5A775A009A3AF7 /* LSTM.swift */,
 			);
 			path = PredictionModels;
+			sourceTree = "<group>";
+		};
+		06E120062B5A9D80009A3AF7 /* lstm */ = {
+			isa = PBXGroup;
+			children = (
+				06E120022B5A7FD8009A3AF7 /* lstm__me__30.mlpackage */,
+				06E120042B5A806B009A3AF7 /* lstm__me__60.mlpackage */,
+			);
+			path = lstm;
 			sourceTree = "<group>";
 		};
 		06EA7E782ADC47F100752533 = {
@@ -223,16 +243,20 @@
 			files = (
 				06EA7EA72ADC5F6C00752533 /* HKUnit.swift in Sources */,
 				06EA7E972ADC5D1B00752533 /* MainViewController.swift in Sources */,
-				068E1CB32B46FE2B00CCF8E4 /* ExampleModel.swift in Sources */,
+				068E1CB32B46FE2B00CCF8E4 /* MockModel.swift in Sources */,
 				068E1CB12B46FCE800CCF8E4 /* BaseModel.swift in Sources */,
 				06EA7EA22ADC5ECC00752533 /* HealthKitSetupAssistant.swift in Sources */,
 				06EA7E9D2ADC5D7100752533 /* CarbohydrateStore.swift in Sources */,
+				06E513102B4C3A400003A570 /* RidgeRegressor.swift in Sources */,
 				06EA7E9B2ADC5D6700752533 /* BloodGlucoseModel.swift in Sources */,
 				06EA7E9F2ADC5D7800752533 /* InsulinStore.swift in Sources */,
 				06EA7EA42ADC5ED700752533 /* HealthKitDataStore.swift in Sources */,
 				06EA7E992ADC5D5A00752533 /* BloodGlucoseStore.swift in Sources */,
+				06E120012B5A775A009A3AF7 /* LSTM.swift in Sources */,
 				06EA7E872ADC47F100752533 /* MainView.swift in Sources */,
+				06E120052B5A806B009A3AF7 /* lstm__me__60.mlpackage in Sources */,
 				06EA7E852ADC47F100752533 /* GlucoProphetApp.swift in Sources */,
+				06E120032B5A7FD8009A3AF7 /* lstm__me__30.mlpackage in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

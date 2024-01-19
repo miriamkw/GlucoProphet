@@ -30,7 +30,9 @@ class MainViewController: NSObject, ObservableObject {
     private let bgStore = BloodGlucoseStore.shared
     private let insulinStore = InsulinStore.shared
     private let carbStore = CarbohydrateStore.shared
-    private let predictionModel = ExampleModel(identifier: "ExampleModel")
+    // private let predictionModel = MockModel(identifier: "MockModel")
+    // private let predictionModel = RidgeRegressor(identifier: "RidgeRegressor")
+    private let predictionModel = LSTM(identifier: "LSTM")
     
     // UI state variables
     @Published var tempBasal = 0.9 {
