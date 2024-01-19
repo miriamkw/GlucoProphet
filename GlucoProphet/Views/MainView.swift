@@ -149,7 +149,7 @@ struct MainView: View {
                     VStack {
                         // Add bolus insulin slider
                         HStack {
-                            Text("Add bolus dose")
+                            Text("Add insulin dose")
                             Spacer()
                             Text("\(controller.addedBolus, specifier: "%.1f") U")
                         }

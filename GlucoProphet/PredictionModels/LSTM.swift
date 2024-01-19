@@ -14,6 +14,7 @@ let unit_k = 18.0182
 class LSTM: BaseModel {
     let identifier: String
     private let bgStore = BloodGlucoseStore.shared
+    private let carbStore = CarbohydrateStore.shared
     
     init(identifier: String) {
         self.identifier = identifier
@@ -22,11 +23,15 @@ class LSTM: BaseModel {
     func predict(tempBasal: Double, addedBolus: Double, addedCarbs: Double) -> [BloodGlucoseModel] {
         var predictions = [BloodGlucoseModel]()
         
-        guard bgStore.bgSamples.count >= 6 else {
+        let regressionLength = 6
+        
+        guard bgStore.bgSamples.count >= regressionLength else {
             // When there are no blood glucose measurements available, return an empty list of predictions
             return []
         }
-        let bloodGlucoseValues = Array(bgStore.bgSamples.suffix(6))
+        let bloodGlucoseValues = Array(bgStore.bgSamples.suffix(regressionLength))
+        
+        let carbValues = carbStore.getResampledCarbohydrates(date: bloodGlucoseValues[regressionLength - 1].date, numSamples: regressionLength)
         
         // Create an MLFeatureProvider with input values
         guard let multiArray = try? MLMultiArray(shape: [1, 6, 3], dataType: .float32) else {
@@ -39,7 +44,7 @@ class LSTM: BaseModel {
             multiArray[i * 3] = NSNumber(value: bloodGlucoseValues[i].value * unit_k)
             
             // Carbohydrates
-            let carbs = i == 5 ? addedCarbs : 0
+            let carbs = i == 5 ? carbValues[i] + addedCarbs : carbValues[i]
             multiArray[i * 3 + 1] = NSNumber(value: carbs)
             
             // Insulin
@@ -85,6 +90,7 @@ class LSTM: BaseModel {
         return newSample
     }
     
+    // TODO: This could maybe be moved to MainViewController to avoid redundancy since it will be relevant for all prediction approaches
     /// Generate linearnly interpolated samples with 5-minute intervals between each predicted value.
     func generateInterpolatedSamples(newestBgSample: BloodGlucoseModel, predictions: [BloodGlucoseModel]) -> [BloodGlucoseModel] {
         var interpolatedSamples = [BloodGlucoseModel]()

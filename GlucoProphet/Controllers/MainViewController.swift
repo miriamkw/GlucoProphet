@@ -77,14 +77,14 @@ class MainViewController: NSObject, ObservableObject {
         }, updateHandler: {
             self.fetchPredictions()
         })*/
-        /*
+        
         // Get relevant carbohydrate consumptions
         group.enter()
         self.carbStore.starObserver(completion: {
             group.leave()
         }, updateHandler: {
             self.fetchPredictions()
-        })*/
+        })
         
         group.enter()
         self.bgStore.startObserver(completion: {

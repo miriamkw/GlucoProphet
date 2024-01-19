@@ -13,8 +13,9 @@ class CarbohydrateStore {
     
     private let healthKitDataStore = HealthKitDataStore.shared
     
+    // Unit is seconds
     private var totalDuration: Double {
-        return 60*60 // TODO: Add a proper time period to fetch data
+        return 60*60 // Storing data for one hour, adjust if needed
     }
     
     // Create singleton instance
@@ -39,7 +40,7 @@ class CarbohydrateStore {
     
     private func setCarbValues(samples: [HKQuantitySample], deleted: [HKDeletedObject]) {
         var mostRecentSamples = carbSamples
-        // Filter out glucose values that no longer are relevant
+        // Filter out carbohydrate values that no longer are relevant
         mostRecentSamples.removeAll { sample in
             sample.endDate < Date().addingTimeInterval(-TimeInterval(totalDuration))
         }
@@ -99,13 +100,42 @@ class CarbohydrateStore {
             if (timeSinceCarbIntake < 0 || (timeSinceCarbIntake > totalDuration/60)) {
                 continue
             }
-            
             // If the insulin dose happened for over 7 minutes, the dose will be split into five minute intervals
             res = res + carbQuantity
         }
         // Add added carbohydrates from UI
         res = res + addedCarbs
         return res
+    }
+    
+    /// Generates resampled carbohydrate values for a specified time range.
+    ///
+    /// - Parameters:
+    ///   - date: The reference date for generating the resampled carbohydrates.
+    ///   - numSamples: The number of intervals for which to generate resampled carbohydrates.
+    ///   - interval: The interval in minutes between each resampled sample
+    ///
+    /// - Returns: An array of resampled carbohydrate values for each 5-minute interval.
+    func getResampledCarbohydrates(date: Date, numSamples: Int, interval: Int = 5) -> [Double] {
+        var resampledCarbs = [Double]()
+
+        for i in 0..<numSamples {
+            let intervalStart = date.addingTimeInterval(-TimeInterval((numSamples - i) * interval * 60))
+            let intervalEnd = date.addingTimeInterval(-TimeInterval((numSamples - i - 1) * interval * 60))
+
+            let carbSamplesInInterval = carbSamples.filter { sample in
+                let sampleDate = sample.startDate
+                return sampleDate >= intervalStart && sampleDate < intervalEnd
+            }
+
+            // Sum up carbohydrates within the interval
+            let sumCarbs = carbSamplesInInterval.reduce(0.0) { (result, sample) in
+                let grams = sample.quantity.doubleValue(for: HKUnit.gram())
+                return result + grams
+            }
+            resampledCarbs.append(sumCarbs)
+        }
+        return resampledCarbs
     }
 }
 
