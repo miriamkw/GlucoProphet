@@ -15,6 +15,7 @@ class LSTM: BaseModel {
     let identifier: String
     private let bgStore = BloodGlucoseStore.shared
     private let carbStore = CarbohydrateStore.shared
+    private let insulinStore = InsulinStore.shared
     
     init(identifier: String) {
         self.identifier = identifier
@@ -32,6 +33,7 @@ class LSTM: BaseModel {
         let bloodGlucoseValues = Array(bgStore.bgSamples.suffix(regressionLength))
         
         let carbValues = carbStore.getResampledCarbohydrates(date: bloodGlucoseValues[regressionLength - 1].date, numSamples: regressionLength)
+        let insulinValues = insulinStore.getResampledInsulin(date: bloodGlucoseValues[regressionLength - 1].date, numSamples: regressionLength)
         
         // Create an MLFeatureProvider with input values
         guard let multiArray = try? MLMultiArray(shape: [1, 6, 3], dataType: .float32) else {
@@ -48,7 +50,7 @@ class LSTM: BaseModel {
             multiArray[i * 3 + 1] = NSNumber(value: carbs)
             
             // Insulin
-            let insulin = i == 5 ? 0.0666 + addedBolus : 0.0666
+            let insulin = i == 5 ? insulinValues[i] + addedBolus : insulinValues[i]
             multiArray[i * 3 + 2] = NSNumber(value: insulin)
         }
         
@@ -64,15 +66,24 @@ class LSTM: BaseModel {
             do {
                 let currentDate = newestBgSample.date
                 
+                let model_15 = try lstm__me__15(configuration: MLModelConfiguration())
                 let model_30 = try lstm__me__30(configuration: MLModelConfiguration())
+                let model_45 = try lstm__me__45(configuration: MLModelConfiguration())
                 let model_60 = try lstm__me__60(configuration: MLModelConfiguration())
+                let model_75 = try lstm__me__75(configuration: MLModelConfiguration())
                                     
                 // Make the prediction
+                let prediction_15 = try model_15.prediction(lstm_input: multiArray).Identity[0]
                 let prediction_30 = try model_30.prediction(lstm_input: multiArray).Identity[0]
+                let prediction_45 = try model_45.prediction(lstm_2_input: multiArray).Identity[0]
                 let prediction_60 = try model_60.prediction(lstm_1_input: multiArray).Identity[0]
+                let prediction_75 = try model_75.prediction(lstm_4_input: multiArray).Identity[0]
                 
+                predictions.append(getPredictionSample(prediction: prediction_15, date: currentDate, prediction_horizon: 15))
                 predictions.append(getPredictionSample(prediction: prediction_30, date: currentDate, prediction_horizon: 30))
+                predictions.append(getPredictionSample(prediction: prediction_45, date: currentDate, prediction_horizon: 45))
                 predictions.append(getPredictionSample(prediction: prediction_60, date: currentDate, prediction_horizon: 60))
+                predictions.append(getPredictionSample(prediction: prediction_75, date: currentDate, prediction_horizon: 75))
                 
                 predictions = generateInterpolatedSamples(newestBgSample: newestBgSample, predictions: predictions)
             } catch {

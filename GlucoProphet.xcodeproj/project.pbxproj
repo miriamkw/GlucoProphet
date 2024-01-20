@@ -12,6 +12,9 @@
 		06E120012B5A775A009A3AF7 /* LSTM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E120002B5A775A009A3AF7 /* LSTM.swift */; };
 		06E120032B5A7FD8009A3AF7 /* lstm__me__30.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120022B5A7FD8009A3AF7 /* lstm__me__30.mlpackage */; };
 		06E120052B5A806B009A3AF7 /* lstm__me__60.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120042B5A806B009A3AF7 /* lstm__me__60.mlpackage */; };
+		06E120082B5AD58F009A3AF7 /* lstm__me__15.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120072B5AD58F009A3AF7 /* lstm__me__15.mlpackage */; };
+		06E1200A2B5AD596009A3AF7 /* lstm__me__45.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120092B5AD596009A3AF7 /* lstm__me__45.mlpackage */; };
+		06E1200C2B5AD59E009A3AF7 /* lstm__me__75.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E1200B2B5AD59E009A3AF7 /* lstm__me__75.mlpackage */; };
 		06E513102B4C3A400003A570 /* RidgeRegressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E5130F2B4C3A400003A570 /* RidgeRegressor.swift */; };
 		06EA7E852ADC47F100752533 /* GlucoProphetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7E842ADC47F100752533 /* GlucoProphetApp.swift */; };
 		06EA7E872ADC47F100752533 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7E862ADC47F100752533 /* MainView.swift */; };
@@ -34,6 +37,9 @@
 		06E120002B5A775A009A3AF7 /* LSTM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTM.swift; sourceTree = "<group>"; };
 		06E120022B5A7FD8009A3AF7 /* lstm__me__30.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__30.mlpackage; sourceTree = "<group>"; };
 		06E120042B5A806B009A3AF7 /* lstm__me__60.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__60.mlpackage; sourceTree = "<group>"; };
+		06E120072B5AD58F009A3AF7 /* lstm__me__15.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__15.mlpackage; sourceTree = "<group>"; };
+		06E120092B5AD596009A3AF7 /* lstm__me__45.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__45.mlpackage; sourceTree = "<group>"; };
+		06E1200B2B5AD59E009A3AF7 /* lstm__me__75.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__75.mlpackage; sourceTree = "<group>"; };
 		06E5130F2B4C3A400003A570 /* RidgeRegressor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidgeRegressor.swift; sourceTree = "<group>"; };
 		06EA7E812ADC47F100752533 /* GlucoProphet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlucoProphet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06EA7E842ADC47F100752533 /* GlucoProphetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlucoProphetApp.swift; sourceTree = "<group>"; };
@@ -78,8 +84,11 @@
 		06E120062B5A9D80009A3AF7 /* lstm */ = {
 			isa = PBXGroup;
 			children = (
+				06E120072B5AD58F009A3AF7 /* lstm__me__15.mlpackage */,
 				06E120022B5A7FD8009A3AF7 /* lstm__me__30.mlpackage */,
+				06E120092B5AD596009A3AF7 /* lstm__me__45.mlpackage */,
 				06E120042B5A806B009A3AF7 /* lstm__me__60.mlpackage */,
+				06E1200B2B5AD59E009A3AF7 /* lstm__me__75.mlpackage */,
 			);
 			path = lstm;
 			sourceTree = "<group>";
@@ -198,7 +207,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					06EA7E802ADC47F100752533 = {
 						CreatedOnToolsVersion = 15.0;
@@ -245,8 +254,10 @@
 				06EA7E972ADC5D1B00752533 /* MainViewController.swift in Sources */,
 				068E1CB32B46FE2B00CCF8E4 /* MockModel.swift in Sources */,
 				068E1CB12B46FCE800CCF8E4 /* BaseModel.swift in Sources */,
+				06E1200C2B5AD59E009A3AF7 /* lstm__me__75.mlpackage in Sources */,
 				06EA7EA22ADC5ECC00752533 /* HealthKitSetupAssistant.swift in Sources */,
 				06EA7E9D2ADC5D7100752533 /* CarbohydrateStore.swift in Sources */,
+				06E1200A2B5AD596009A3AF7 /* lstm__me__45.mlpackage in Sources */,
 				06E513102B4C3A400003A570 /* RidgeRegressor.swift in Sources */,
 				06EA7E9B2ADC5D6700752533 /* BloodGlucoseModel.swift in Sources */,
 				06EA7E9F2ADC5D7800752533 /* InsulinStore.swift in Sources */,
@@ -256,6 +267,7 @@
 				06EA7E872ADC47F100752533 /* MainView.swift in Sources */,
 				06E120052B5A806B009A3AF7 /* lstm__me__60.mlpackage in Sources */,
 				06EA7E852ADC47F100752533 /* GlucoProphetApp.swift in Sources */,
+				06E120082B5AD58F009A3AF7 /* lstm__me__15.mlpackage in Sources */,
 				06E120032B5A7FD8009A3AF7 /* lstm__me__30.mlpackage in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +309,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -358,6 +371,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -385,6 +399,7 @@
 				CODE_SIGN_ENTITLEMENTS = GlucoProphet/GlucoProphet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"GlucoProphet/Preview Content\"";
 				DEVELOPMENT_TEAM = F97789F2PG;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -424,6 +439,7 @@
 				CODE_SIGN_ENTITLEMENTS = GlucoProphet/GlucoProphet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"GlucoProphet/Preview Content\"";
 				DEVELOPMENT_TEAM = F97789F2PG;
 				ENABLE_HARDENED_RUNTIME = YES;

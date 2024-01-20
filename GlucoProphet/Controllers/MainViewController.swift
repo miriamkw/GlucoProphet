@@ -69,14 +69,14 @@ class MainViewController: NSObject, ObservableObject {
         let group = DispatchGroup()
                 
         // First group is fetching glucose values, make sure it finished before the first prediction is called
-        /*
+        
         // Get relevant insulin values
         group.enter()
         self.insulinStore.starObserver(completion: {
             group.leave()
         }, updateHandler: {
             self.fetchPredictions()
-        })*/
+        })
         
         // Get relevant carbohydrate consumptions
         group.enter()

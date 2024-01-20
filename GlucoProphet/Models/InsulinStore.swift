@@ -18,7 +18,7 @@ class InsulinStore {
     private let healthKitDataStore = HealthKitDataStore.shared
     
     private var totalDuration: Double {
-        return 60*60 // TODO: How many samples to include?
+        return 60*30 // TODO: How many samples to include?
     }
     // Create singleton instance
     static let shared = InsulinStore()
@@ -184,6 +184,28 @@ class InsulinStore {
         }
 
         return res
+    }
+    
+    func getResampledInsulin(date: Date, numSamples: Int, interval: Int = 5) -> [Double] {
+        var resampledInsulin = [Double]()
+
+        for i in 0..<numSamples {
+            let intervalStart = date.addingTimeInterval(-TimeInterval((numSamples - i) * interval * 60))
+            let intervalEnd = date.addingTimeInterval(-TimeInterval((numSamples - i - 1) * interval * 60))
+
+            let insulinSamplesInInterval = insulinSamples.filter { sample in
+                let sampleDate = sample.startDate
+                return sampleDate >= intervalStart && sampleDate < intervalEnd
+            }
+
+            // Sum up insulin within the interval
+            let sumInsulin = insulinSamplesInInterval.reduce(0.0) { (result, sample) in
+                let insulin = sample.quantity.doubleValue(for: HKUnit.internationalUnit())
+                return result + insulin
+            }
+            resampledInsulin.append(sumInsulin)
+        }
+        return resampledInsulin
     }
 }
 
