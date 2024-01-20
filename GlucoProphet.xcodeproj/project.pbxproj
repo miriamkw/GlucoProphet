@@ -10,11 +10,30 @@
 		068E1CB12B46FCE800CCF8E4 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E1CB02B46FCE800CCF8E4 /* BaseModel.swift */; };
 		068E1CB32B46FE2B00CCF8E4 /* MockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E1CB22B46FE2B00CCF8E4 /* MockModel.swift */; };
 		06E120012B5A775A009A3AF7 /* LSTM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E120002B5A775A009A3AF7 /* LSTM.swift */; };
-		06E120032B5A7FD8009A3AF7 /* lstm__me__30.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120022B5A7FD8009A3AF7 /* lstm__me__30.mlpackage */; };
-		06E120052B5A806B009A3AF7 /* lstm__me__60.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120042B5A806B009A3AF7 /* lstm__me__60.mlpackage */; };
-		06E120082B5AD58F009A3AF7 /* lstm__me__15.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120072B5AD58F009A3AF7 /* lstm__me__15.mlpackage */; };
-		06E1200A2B5AD596009A3AF7 /* lstm__me__45.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120092B5AD596009A3AF7 /* lstm__me__45.mlpackage */; };
-		06E1200C2B5AD59E009A3AF7 /* lstm__me__75.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E1200B2B5AD59E009A3AF7 /* lstm__me__75.mlpackage */; };
+		06E1204A2B5C3E7B009A3AF7 /* ridge__me__105.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E1203E2B5C3E7B009A3AF7 /* ridge__me__105.mlpackage */; };
+		06E1204B2B5C3E7B009A3AF7 /* ridge__me__180.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E1203F2B5C3E7B009A3AF7 /* ridge__me__180.mlpackage */; };
+		06E1204C2B5C3E7B009A3AF7 /* ridge__me__135.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120402B5C3E7B009A3AF7 /* ridge__me__135.mlpackage */; };
+		06E1204D2B5C3E7B009A3AF7 /* ridge__me__45.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120412B5C3E7B009A3AF7 /* ridge__me__45.mlpackage */; };
+		06E1204E2B5C3E7B009A3AF7 /* ridge__me__15.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120422B5C3E7B009A3AF7 /* ridge__me__15.mlpackage */; };
+		06E1204F2B5C3E7B009A3AF7 /* ridge__me__120.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120432B5C3E7B009A3AF7 /* ridge__me__120.mlpackage */; };
+		06E120502B5C3E7B009A3AF7 /* ridge__me__165.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120442B5C3E7B009A3AF7 /* ridge__me__165.mlpackage */; };
+		06E120512B5C3E7B009A3AF7 /* ridge__me__150.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120452B5C3E7B009A3AF7 /* ridge__me__150.mlpackage */; };
+		06E120522B5C3E7B009A3AF7 /* ridge__me__60.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120462B5C3E7B009A3AF7 /* ridge__me__60.mlpackage */; };
+		06E120532B5C3E7B009A3AF7 /* ridge__me__90.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120472B5C3E7B009A3AF7 /* ridge__me__90.mlpackage */; };
+		06E120542B5C3E7B009A3AF7 /* ridge__me__75.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120482B5C3E7B009A3AF7 /* ridge__me__75.mlpackage */; };
+		06E120552B5C3E7B009A3AF7 /* ridge__me__30.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120492B5C3E7B009A3AF7 /* ridge__me__30.mlpackage */; };
+		06E120622B5C75C3009A3AF7 /* lstm__me__15.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120562B5C75C2009A3AF7 /* lstm__me__15.mlpackage */; };
+		06E120632B5C75C3009A3AF7 /* lstm__me__150.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120572B5C75C2009A3AF7 /* lstm__me__150.mlpackage */; };
+		06E120642B5C75C3009A3AF7 /* lstm__me__75.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120582B5C75C2009A3AF7 /* lstm__me__75.mlpackage */; };
+		06E120652B5C75C3009A3AF7 /* lstm__me__30.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120592B5C75C2009A3AF7 /* lstm__me__30.mlpackage */; };
+		06E120662B5C75C3009A3AF7 /* lstm__me__165.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E1205A2B5C75C2009A3AF7 /* lstm__me__165.mlpackage */; };
+		06E120672B5C75C3009A3AF7 /* lstm__me__120.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E1205B2B5C75C2009A3AF7 /* lstm__me__120.mlpackage */; };
+		06E120682B5C75C3009A3AF7 /* lstm__me__60.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E1205C2B5C75C2009A3AF7 /* lstm__me__60.mlpackage */; };
+		06E120692B5C75C3009A3AF7 /* lstm__me__180.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E1205D2B5C75C2009A3AF7 /* lstm__me__180.mlpackage */; };
+		06E1206A2B5C75C3009A3AF7 /* lstm__me__90.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E1205E2B5C75C2009A3AF7 /* lstm__me__90.mlpackage */; };
+		06E1206B2B5C75C3009A3AF7 /* lstm__me__105.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E1205F2B5C75C2009A3AF7 /* lstm__me__105.mlpackage */; };
+		06E1206C2B5C75C3009A3AF7 /* lstm__me__45.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120602B5C75C3009A3AF7 /* lstm__me__45.mlpackage */; };
+		06E1206D2B5C75C3009A3AF7 /* lstm__me__135.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120612B5C75C3009A3AF7 /* lstm__me__135.mlpackage */; };
 		06E513102B4C3A400003A570 /* RidgeRegressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E5130F2B4C3A400003A570 /* RidgeRegressor.swift */; };
 		06EA7E852ADC47F100752533 /* GlucoProphetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7E842ADC47F100752533 /* GlucoProphetApp.swift */; };
 		06EA7E872ADC47F100752533 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7E862ADC47F100752533 /* MainView.swift */; };
@@ -35,11 +54,30 @@
 		068E1CB02B46FCE800CCF8E4 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		068E1CB22B46FE2B00CCF8E4 /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
 		06E120002B5A775A009A3AF7 /* LSTM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTM.swift; sourceTree = "<group>"; };
-		06E120022B5A7FD8009A3AF7 /* lstm__me__30.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__30.mlpackage; sourceTree = "<group>"; };
-		06E120042B5A806B009A3AF7 /* lstm__me__60.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__60.mlpackage; sourceTree = "<group>"; };
-		06E120072B5AD58F009A3AF7 /* lstm__me__15.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__15.mlpackage; sourceTree = "<group>"; };
-		06E120092B5AD596009A3AF7 /* lstm__me__45.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__45.mlpackage; sourceTree = "<group>"; };
-		06E1200B2B5AD59E009A3AF7 /* lstm__me__75.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__75.mlpackage; sourceTree = "<group>"; };
+		06E1203E2B5C3E7B009A3AF7 /* ridge__me__105.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = ridge__me__105.mlpackage; sourceTree = "<group>"; };
+		06E1203F2B5C3E7B009A3AF7 /* ridge__me__180.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = ridge__me__180.mlpackage; sourceTree = "<group>"; };
+		06E120402B5C3E7B009A3AF7 /* ridge__me__135.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = ridge__me__135.mlpackage; sourceTree = "<group>"; };
+		06E120412B5C3E7B009A3AF7 /* ridge__me__45.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = ridge__me__45.mlpackage; sourceTree = "<group>"; };
+		06E120422B5C3E7B009A3AF7 /* ridge__me__15.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = ridge__me__15.mlpackage; sourceTree = "<group>"; };
+		06E120432B5C3E7B009A3AF7 /* ridge__me__120.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = ridge__me__120.mlpackage; sourceTree = "<group>"; };
+		06E120442B5C3E7B009A3AF7 /* ridge__me__165.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = ridge__me__165.mlpackage; sourceTree = "<group>"; };
+		06E120452B5C3E7B009A3AF7 /* ridge__me__150.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = ridge__me__150.mlpackage; sourceTree = "<group>"; };
+		06E120462B5C3E7B009A3AF7 /* ridge__me__60.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = ridge__me__60.mlpackage; sourceTree = "<group>"; };
+		06E120472B5C3E7B009A3AF7 /* ridge__me__90.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = ridge__me__90.mlpackage; sourceTree = "<group>"; };
+		06E120482B5C3E7B009A3AF7 /* ridge__me__75.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = ridge__me__75.mlpackage; sourceTree = "<group>"; };
+		06E120492B5C3E7B009A3AF7 /* ridge__me__30.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = ridge__me__30.mlpackage; sourceTree = "<group>"; };
+		06E120562B5C75C2009A3AF7 /* lstm__me__15.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__15.mlpackage; sourceTree = "<group>"; };
+		06E120572B5C75C2009A3AF7 /* lstm__me__150.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__150.mlpackage; sourceTree = "<group>"; };
+		06E120582B5C75C2009A3AF7 /* lstm__me__75.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__75.mlpackage; sourceTree = "<group>"; };
+		06E120592B5C75C2009A3AF7 /* lstm__me__30.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__30.mlpackage; sourceTree = "<group>"; };
+		06E1205A2B5C75C2009A3AF7 /* lstm__me__165.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__165.mlpackage; sourceTree = "<group>"; };
+		06E1205B2B5C75C2009A3AF7 /* lstm__me__120.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__120.mlpackage; sourceTree = "<group>"; };
+		06E1205C2B5C75C2009A3AF7 /* lstm__me__60.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__60.mlpackage; sourceTree = "<group>"; };
+		06E1205D2B5C75C2009A3AF7 /* lstm__me__180.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__180.mlpackage; sourceTree = "<group>"; };
+		06E1205E2B5C75C2009A3AF7 /* lstm__me__90.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__90.mlpackage; sourceTree = "<group>"; };
+		06E1205F2B5C75C2009A3AF7 /* lstm__me__105.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__105.mlpackage; sourceTree = "<group>"; };
+		06E120602B5C75C3009A3AF7 /* lstm__me__45.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__45.mlpackage; sourceTree = "<group>"; };
+		06E120612B5C75C3009A3AF7 /* lstm__me__135.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__135.mlpackage; sourceTree = "<group>"; };
 		06E5130F2B4C3A400003A570 /* RidgeRegressor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidgeRegressor.swift; sourceTree = "<group>"; };
 		06EA7E812ADC47F100752533 /* GlucoProphet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlucoProphet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06EA7E842ADC47F100752533 /* GlucoProphetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlucoProphetApp.swift; sourceTree = "<group>"; };
@@ -72,6 +110,7 @@
 		068E1CAF2B46FCCD00CCF8E4 /* PredictionModels */ = {
 			isa = PBXGroup;
 			children = (
+				06E1200D2B5C3A62009A3AF7 /* ridge */,
 				06E120062B5A9D80009A3AF7 /* lstm */,
 				068E1CB02B46FCE800CCF8E4 /* BaseModel.swift */,
 				068E1CB22B46FE2B00CCF8E4 /* MockModel.swift */,
@@ -84,13 +123,39 @@
 		06E120062B5A9D80009A3AF7 /* lstm */ = {
 			isa = PBXGroup;
 			children = (
-				06E120072B5AD58F009A3AF7 /* lstm__me__15.mlpackage */,
-				06E120022B5A7FD8009A3AF7 /* lstm__me__30.mlpackage */,
-				06E120092B5AD596009A3AF7 /* lstm__me__45.mlpackage */,
-				06E120042B5A806B009A3AF7 /* lstm__me__60.mlpackage */,
-				06E1200B2B5AD59E009A3AF7 /* lstm__me__75.mlpackage */,
+				06E120562B5C75C2009A3AF7 /* lstm__me__15.mlpackage */,
+				06E120592B5C75C2009A3AF7 /* lstm__me__30.mlpackage */,
+				06E120602B5C75C3009A3AF7 /* lstm__me__45.mlpackage */,
+				06E1205C2B5C75C2009A3AF7 /* lstm__me__60.mlpackage */,
+				06E120582B5C75C2009A3AF7 /* lstm__me__75.mlpackage */,
+				06E1205E2B5C75C2009A3AF7 /* lstm__me__90.mlpackage */,
+				06E1205F2B5C75C2009A3AF7 /* lstm__me__105.mlpackage */,
+				06E1205B2B5C75C2009A3AF7 /* lstm__me__120.mlpackage */,
+				06E120612B5C75C3009A3AF7 /* lstm__me__135.mlpackage */,
+				06E120572B5C75C2009A3AF7 /* lstm__me__150.mlpackage */,
+				06E1205A2B5C75C2009A3AF7 /* lstm__me__165.mlpackage */,
+				06E1205D2B5C75C2009A3AF7 /* lstm__me__180.mlpackage */,
 			);
 			path = lstm;
+			sourceTree = "<group>";
+		};
+		06E1200D2B5C3A62009A3AF7 /* ridge */ = {
+			isa = PBXGroup;
+			children = (
+				06E120422B5C3E7B009A3AF7 /* ridge__me__15.mlpackage */,
+				06E120492B5C3E7B009A3AF7 /* ridge__me__30.mlpackage */,
+				06E120412B5C3E7B009A3AF7 /* ridge__me__45.mlpackage */,
+				06E120462B5C3E7B009A3AF7 /* ridge__me__60.mlpackage */,
+				06E120482B5C3E7B009A3AF7 /* ridge__me__75.mlpackage */,
+				06E120472B5C3E7B009A3AF7 /* ridge__me__90.mlpackage */,
+				06E1203E2B5C3E7B009A3AF7 /* ridge__me__105.mlpackage */,
+				06E120432B5C3E7B009A3AF7 /* ridge__me__120.mlpackage */,
+				06E120402B5C3E7B009A3AF7 /* ridge__me__135.mlpackage */,
+				06E120452B5C3E7B009A3AF7 /* ridge__me__150.mlpackage */,
+				06E120442B5C3E7B009A3AF7 /* ridge__me__165.mlpackage */,
+				06E1203F2B5C3E7B009A3AF7 /* ridge__me__180.mlpackage */,
+			);
+			path = ridge;
 			sourceTree = "<group>";
 		};
 		06EA7E782ADC47F100752533 = {
@@ -251,24 +316,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				06EA7EA72ADC5F6C00752533 /* HKUnit.swift in Sources */,
+				06E1204F2B5C3E7B009A3AF7 /* ridge__me__120.mlpackage in Sources */,
 				06EA7E972ADC5D1B00752533 /* MainViewController.swift in Sources */,
+				06E120532B5C3E7B009A3AF7 /* ridge__me__90.mlpackage in Sources */,
+				06E120622B5C75C3009A3AF7 /* lstm__me__15.mlpackage in Sources */,
 				068E1CB32B46FE2B00CCF8E4 /* MockModel.swift in Sources */,
+				06E1204B2B5C3E7B009A3AF7 /* ridge__me__180.mlpackage in Sources */,
 				068E1CB12B46FCE800CCF8E4 /* BaseModel.swift in Sources */,
-				06E1200C2B5AD59E009A3AF7 /* lstm__me__75.mlpackage in Sources */,
+				06E120542B5C3E7B009A3AF7 /* ridge__me__75.mlpackage in Sources */,
+				06E120642B5C75C3009A3AF7 /* lstm__me__75.mlpackage in Sources */,
+				06E1206B2B5C75C3009A3AF7 /* lstm__me__105.mlpackage in Sources */,
+				06E1204D2B5C3E7B009A3AF7 /* ridge__me__45.mlpackage in Sources */,
+				06E120672B5C75C3009A3AF7 /* lstm__me__120.mlpackage in Sources */,
+				06E120632B5C75C3009A3AF7 /* lstm__me__150.mlpackage in Sources */,
 				06EA7EA22ADC5ECC00752533 /* HealthKitSetupAssistant.swift in Sources */,
 				06EA7E9D2ADC5D7100752533 /* CarbohydrateStore.swift in Sources */,
-				06E1200A2B5AD596009A3AF7 /* lstm__me__45.mlpackage in Sources */,
+				06E120652B5C75C3009A3AF7 /* lstm__me__30.mlpackage in Sources */,
+				06E1206D2B5C75C3009A3AF7 /* lstm__me__135.mlpackage in Sources */,
+				06E120552B5C3E7B009A3AF7 /* ridge__me__30.mlpackage in Sources */,
+				06E120512B5C3E7B009A3AF7 /* ridge__me__150.mlpackage in Sources */,
 				06E513102B4C3A400003A570 /* RidgeRegressor.swift in Sources */,
 				06EA7E9B2ADC5D6700752533 /* BloodGlucoseModel.swift in Sources */,
 				06EA7E9F2ADC5D7800752533 /* InsulinStore.swift in Sources */,
 				06EA7EA42ADC5ED700752533 /* HealthKitDataStore.swift in Sources */,
 				06EA7E992ADC5D5A00752533 /* BloodGlucoseStore.swift in Sources */,
+				06E120662B5C75C3009A3AF7 /* lstm__me__165.mlpackage in Sources */,
+				06E120502B5C3E7B009A3AF7 /* ridge__me__165.mlpackage in Sources */,
+				06E120682B5C75C3009A3AF7 /* lstm__me__60.mlpackage in Sources */,
 				06E120012B5A775A009A3AF7 /* LSTM.swift in Sources */,
+				06E1204C2B5C3E7B009A3AF7 /* ridge__me__135.mlpackage in Sources */,
+				06E1204E2B5C3E7B009A3AF7 /* ridge__me__15.mlpackage in Sources */,
+				06E1206C2B5C75C3009A3AF7 /* lstm__me__45.mlpackage in Sources */,
+				06E1204A2B5C3E7B009A3AF7 /* ridge__me__105.mlpackage in Sources */,
 				06EA7E872ADC47F100752533 /* MainView.swift in Sources */,
-				06E120052B5A806B009A3AF7 /* lstm__me__60.mlpackage in Sources */,
+				06E120692B5C75C3009A3AF7 /* lstm__me__180.mlpackage in Sources */,
 				06EA7E852ADC47F100752533 /* GlucoProphetApp.swift in Sources */,
-				06E120082B5AD58F009A3AF7 /* lstm__me__15.mlpackage in Sources */,
-				06E120032B5A7FD8009A3AF7 /* lstm__me__30.mlpackage in Sources */,
+				06E120522B5C3E7B009A3AF7 /* ridge__me__60.mlpackage in Sources */,
+				06E1206A2B5C75C3009A3AF7 /* lstm__me__90.mlpackage in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

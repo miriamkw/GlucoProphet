@@ -40,7 +40,6 @@ class LSTM: BaseModel {
             fatalError("Error creating MLMultiArray")
         }
                 
-        // TODO: Fetch information from HealthKit
         for i in 0..<6 {
             // Blood Glucose
             multiArray[i * 3] = NSNumber(value: bloodGlucoseValues[i].value * unit_k)
@@ -71,19 +70,40 @@ class LSTM: BaseModel {
                 let model_45 = try lstm__me__45(configuration: MLModelConfiguration())
                 let model_60 = try lstm__me__60(configuration: MLModelConfiguration())
                 let model_75 = try lstm__me__75(configuration: MLModelConfiguration())
+                let model_90 = try lstm__me__90(configuration: MLModelConfiguration())
+                let model_105 = try lstm__me__105(configuration: MLModelConfiguration())
+                let model_120 = try lstm__me__120(configuration: MLModelConfiguration())
+                let model_135 = try lstm__me__135(configuration: MLModelConfiguration())
+                let model_150 = try lstm__me__150(configuration: MLModelConfiguration())
+                let model_165 = try lstm__me__165(configuration: MLModelConfiguration())
+                let model_180 = try lstm__me__180(configuration: MLModelConfiguration())
                                     
                 // Make the prediction
                 let prediction_15 = try model_15.prediction(lstm_input: multiArray).Identity[0]
-                let prediction_30 = try model_30.prediction(lstm_input: multiArray).Identity[0]
+                let prediction_30 = try model_30.prediction(lstm_1_input: multiArray).Identity[0]
                 let prediction_45 = try model_45.prediction(lstm_2_input: multiArray).Identity[0]
-                let prediction_60 = try model_60.prediction(lstm_1_input: multiArray).Identity[0]
+                let prediction_60 = try model_60.prediction(lstm_3_input: multiArray).Identity[0]
                 let prediction_75 = try model_75.prediction(lstm_4_input: multiArray).Identity[0]
+                let prediction_90 = try model_90.prediction(lstm_5_input: multiArray).Identity[0]
+                let prediction_105 = try model_105.prediction(lstm_6_input: multiArray).Identity[0]
+                let prediction_120 = try model_120.prediction(lstm_7_input: multiArray).Identity[0]
+                let prediction_135 = try model_135.prediction(lstm_8_input: multiArray).Identity[0]
+                let prediction_150 = try model_150.prediction(lstm_9_input: multiArray).Identity[0]
+                let prediction_165 = try model_165.prediction(lstm_10_input: multiArray).Identity[0]
+                let prediction_180 = try model_180.prediction(lstm_11_input: multiArray).Identity[0]
                 
                 predictions.append(getPredictionSample(prediction: prediction_15, date: currentDate, prediction_horizon: 15))
                 predictions.append(getPredictionSample(prediction: prediction_30, date: currentDate, prediction_horizon: 30))
                 predictions.append(getPredictionSample(prediction: prediction_45, date: currentDate, prediction_horizon: 45))
                 predictions.append(getPredictionSample(prediction: prediction_60, date: currentDate, prediction_horizon: 60))
                 predictions.append(getPredictionSample(prediction: prediction_75, date: currentDate, prediction_horizon: 75))
+                predictions.append(getPredictionSample(prediction: prediction_90, date: currentDate, prediction_horizon: 90))
+                predictions.append(getPredictionSample(prediction: prediction_105, date: currentDate, prediction_horizon: 105))
+                predictions.append(getPredictionSample(prediction: prediction_120, date: currentDate, prediction_horizon: 120))
+                predictions.append(getPredictionSample(prediction: prediction_135, date: currentDate, prediction_horizon: 135))
+                predictions.append(getPredictionSample(prediction: prediction_150, date: currentDate, prediction_horizon: 150))
+                predictions.append(getPredictionSample(prediction: prediction_165, date: currentDate, prediction_horizon: 165))
+                predictions.append(getPredictionSample(prediction: prediction_180, date: currentDate, prediction_horizon: 180))
                 
                 predictions = generateInterpolatedSamples(newestBgSample: newestBgSample, predictions: predictions)
             } catch {
