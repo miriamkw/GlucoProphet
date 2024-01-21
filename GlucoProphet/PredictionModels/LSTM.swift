@@ -104,8 +104,6 @@ class LSTM: BaseModel {
                 predictions.append(getPredictionSample(prediction: prediction_150, date: currentDate, prediction_horizon: 150))
                 predictions.append(getPredictionSample(prediction: prediction_165, date: currentDate, prediction_horizon: 165))
                 predictions.append(getPredictionSample(prediction: prediction_180, date: currentDate, prediction_horizon: 180))
-                
-                predictions = generateInterpolatedSamples(newestBgSample: newestBgSample, predictions: predictions)
             } catch {
                 print("Error making prediction: \(error)")
             }
@@ -119,38 +117,5 @@ class LSTM: BaseModel {
             date: date.addingTimeInterval(60*prediction_horizon),
             value: Double(truncating: prediction) / unit_k)
         return newSample
-    }
-    
-    // TODO: This could maybe be moved to MainViewController to avoid redundancy since it will be relevant for all prediction approaches
-    /// Generate linearnly interpolated samples with 5-minute intervals between each predicted value.
-    func generateInterpolatedSamples(newestBgSample: BloodGlucoseModel, predictions: [BloodGlucoseModel]) -> [BloodGlucoseModel] {
-        var interpolatedSamples = [BloodGlucoseModel]()
-
-        for i in 0..<predictions.count {
-            let currentPrediction = predictions[i]
-            let previousPrediction = i == 0 ? newestBgSample : predictions[i - 1]
-            
-            // Calculate the time difference between current and previous predictions
-            let timeDifference = currentPrediction.date.timeIntervalSince(previousPrediction.date)
-            
-            // Calculate the number of 5-minute intervals between predictions
-            let numberOfIntervals = Int(timeDifference / (5 * 60)) - 1
-            
-            // Perform linear interpolation
-            for j in 1...numberOfIntervals {
-                let interpolationFactor = Double(j) / Double(numberOfIntervals + 1)
-                let interpolatedValue = (1 - interpolationFactor) * previousPrediction.value + interpolationFactor * currentPrediction.value
-                
-                let interpolatedSample = BloodGlucoseModel(
-                    id: UUID(),
-                    date: previousPrediction.date.addingTimeInterval(5 * 60 * Double(j)),
-                    value: interpolatedValue
-                )
-                interpolatedSamples.append(interpolatedSample)
-            }
-            // Add the current prediction
-            interpolatedSamples.append(currentPrediction)
-        }
-        return interpolatedSamples
     }
 }
