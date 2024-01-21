@@ -164,6 +164,15 @@ struct MainView: View {
                         }
                         Slider(value: $controller.addedCarbs, in: 0...100, step: 5)
                     }
+                    VStack {
+                        // Add carbohydrate intake slider
+                        Picker("Select Model", selection: $controller.selectedModel) {
+                            ForEach(["RidgeRegressor", "LSTM"], id: \.self) { model in
+                                Text(model)
+                            }
+                        }
+                        .pickerStyle(MenuPickerStyle())
+                    }
                 }
             }
             .navigationBarTitle("Glucose Prediction")

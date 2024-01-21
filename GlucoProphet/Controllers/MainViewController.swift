@@ -32,9 +32,9 @@ class MainViewController: NSObject, ObservableObject {
     private let carbStore = CarbohydrateStore.shared
     
     // private let predictionModel = MockModel(identifier: "MockModel")
-    // private let predictionModel = RidgeRegressor(identifier: "RidgeRegressor")
-    private let predictionModel = LSTM(identifier: "LSTM")
-    
+    private let ridge = RidgeRegressor(identifier: "RidgeRegressor")
+    private let lstm = LSTM(identifier: "LSTM")
+        
     // UI state variables
     @Published var tempBasal = 0.9 {
         didSet {
@@ -53,6 +53,13 @@ class MainViewController: NSObject, ObservableObject {
     @Published var addedCarbs = 0.0 {
         didSet {
             if !(addedCarbs == oldValue) {
+                fetchPredictions()
+            }
+        }
+    }
+    @Published var selectedModel = "RidgeRegressor" {
+        didSet {
+            if !(selectedModel == oldValue) {
                 fetchPredictions()
             }
         }
@@ -118,8 +125,12 @@ class MainViewController: NSObject, ObservableObject {
     private func fetchPredictions() {
         if let newestBgSample = self.bgStore.bgSamples.last {
             DispatchQueue.main.async {
-                let predictions = self.predictionModel.predict(tempBasal: self.tempBasal, addedBolus: self.addedBolus, addedCarbs: self.addedCarbs)
-                
+                var predictions: [BloodGlucoseModel] = []
+                if self.selectedModel == "LSTM" {
+                    predictions = self.lstm.predict(tempBasal: self.tempBasal, addedBolus: self.addedBolus, addedCarbs: self.addedCarbs)
+                } else {
+                    predictions = self.ridge.predict(tempBasal: self.tempBasal, addedBolus: self.addedBolus, addedCarbs: self.addedCarbs)
+                }
                 // Add linear interpolation between each predicted sample so that there is a predicted measurement for every 5-minute interval
                 self.predictedValues = self.generateInterpolatedSamples(newestBgSample: newestBgSample, predictions: predictions)
             }
