@@ -34,6 +34,7 @@
 		06E1206B2B5C75C3009A3AF7 /* lstm__me__105.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E1205F2B5C75C2009A3AF7 /* lstm__me__105.mlpackage */; };
 		06E1206C2B5C75C3009A3AF7 /* lstm__me__45.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120602B5C75C3009A3AF7 /* lstm__me__45.mlpackage */; };
 		06E1206D2B5C75C3009A3AF7 /* lstm__me__135.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 06E120612B5C75C3009A3AF7 /* lstm__me__135.mlpackage */; };
+		06E1206F2B5D3C09009A3AF7 /* figures in Resources */ = {isa = PBXBuildFile; fileRef = 06E1206E2B5D3C09009A3AF7 /* figures */; };
 		06E513102B4C3A400003A570 /* RidgeRegressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E5130F2B4C3A400003A570 /* RidgeRegressor.swift */; };
 		06EA7E852ADC47F100752533 /* GlucoProphetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7E842ADC47F100752533 /* GlucoProphetApp.swift */; };
 		06EA7E872ADC47F100752533 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7E862ADC47F100752533 /* MainView.swift */; };
@@ -78,6 +79,8 @@
 		06E1205F2B5C75C2009A3AF7 /* lstm__me__105.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__105.mlpackage; sourceTree = "<group>"; };
 		06E120602B5C75C3009A3AF7 /* lstm__me__45.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__45.mlpackage; sourceTree = "<group>"; };
 		06E120612B5C75C3009A3AF7 /* lstm__me__135.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = lstm__me__135.mlpackage; sourceTree = "<group>"; };
+		06E1206E2B5D3C09009A3AF7 /* figures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = figures; sourceTree = "<group>"; };
+		06E120742B5D3DA7009A3AF7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		06E5130F2B4C3A400003A570 /* RidgeRegressor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidgeRegressor.swift; sourceTree = "<group>"; };
 		06EA7E812ADC47F100752533 /* GlucoProphet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlucoProphet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06EA7E842ADC47F100752533 /* GlucoProphetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlucoProphetApp.swift; sourceTree = "<group>"; };
@@ -161,7 +164,9 @@
 		06EA7E782ADC47F100752533 = {
 			isa = PBXGroup;
 			children = (
+				06E120742B5D3DA7009A3AF7 /* README.md */,
 				06EA7EA82ADC67C300752533 /* .gitignore */,
+				06E1206E2B5D3C09009A3AF7 /* figures */,
 				06EA7E832ADC47F100752533 /* GlucoProphet */,
 				06EA7E822ADC47F100752533 /* Products */,
 			);
@@ -302,6 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06E1206F2B5D3C09009A3AF7 /* figures in Resources */,
 				06EA7E8D2ADC47F200752533 /* Preview Assets.xcassets in Resources */,
 				06EA7EA92ADC67C300752533 /* .gitignore in Resources */,
 				06EA7E892ADC47F200752533 /* Assets.xcassets in Resources */,
