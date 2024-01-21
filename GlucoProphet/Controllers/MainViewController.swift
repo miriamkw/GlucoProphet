@@ -30,8 +30,11 @@ class MainViewController: NSObject, ObservableObject {
     private let bgStore = BloodGlucoseStore.shared
     private let insulinStore = InsulinStore.shared
     private let carbStore = CarbohydrateStore.shared
-    private let predictionModel = ExampleModel(identifier: "ExampleModel")
     
+    // private let predictionModel = MockModel(identifier: "MockModel")
+    private let ridge = RidgeRegressor(identifier: "RidgeRegressor")
+    private let lstm = LSTM(identifier: "LSTM")
+        
     // UI state variables
     @Published var tempBasal = 0.9 {
         didSet {
@@ -54,6 +57,13 @@ class MainViewController: NSObject, ObservableObject {
             }
         }
     }
+    @Published var selectedModel = "RidgeRegressor" {
+        didSet {
+            if !(selectedModel == oldValue) {
+                fetchPredictions()
+            }
+        }
+    }
    
     /// This method is triggered on the launch of the application and does the following:
     /// 1) A dispatchgroup makes sure that all the different datatypes are fetched that is needed as an input in the machine learning model for the first prediction
@@ -67,22 +77,22 @@ class MainViewController: NSObject, ObservableObject {
         let group = DispatchGroup()
                 
         // First group is fetching glucose values, make sure it finished before the first prediction is called
-        /*
+        
         // Get relevant insulin values
         group.enter()
         self.insulinStore.starObserver(completion: {
             group.leave()
         }, updateHandler: {
             self.fetchPredictions()
-        })*/
-        /*
+        })
+        
         // Get relevant carbohydrate consumptions
         group.enter()
         self.carbStore.starObserver(completion: {
             group.leave()
         }, updateHandler: {
             self.fetchPredictions()
-        })*/
+        })
         
         group.enter()
         self.bgStore.startObserver(completion: {
@@ -113,9 +123,50 @@ class MainViewController: NSObject, ObservableObject {
     /// This method calculates new blood glucose predictions based on the most recent stored data inputs.
     /// This method must always be called on the main thread, because it updates the UI.
     private func fetchPredictions() {
-        DispatchQueue.main.async {
-            self.predictedValues = self.predictionModel.predict(tempBasal: self.tempBasal, addedBolus: self.addedBolus, addedCarbs: self.addedCarbs)
+        if let newestBgSample = self.bgStore.bgSamples.last {
+            DispatchQueue.main.async {
+                var predictions: [BloodGlucoseModel] = []
+                if self.selectedModel == "LSTM" {
+                    predictions = self.lstm.predict(tempBasal: self.tempBasal, addedBolus: self.addedBolus, addedCarbs: self.addedCarbs)
+                } else {
+                    predictions = self.ridge.predict(tempBasal: self.tempBasal, addedBolus: self.addedBolus, addedCarbs: self.addedCarbs)
+                }
+                // Add linear interpolation between each predicted sample so that there is a predicted measurement for every 5-minute interval
+                self.predictedValues = self.generateInterpolatedSamples(newestBgSample: newestBgSample, predictions: predictions)
+            }
         }
+    }
+    
+    /// Generate linearnly interpolated samples with 5-minute intervals between each predicted value.
+    func generateInterpolatedSamples(newestBgSample: BloodGlucoseModel, predictions: [BloodGlucoseModel]) -> [BloodGlucoseModel] {
+        var interpolatedSamples = [BloodGlucoseModel]()
+
+        for i in 0..<predictions.count {
+            let currentPrediction = predictions[i]
+            let previousPrediction = i == 0 ? newestBgSample : predictions[i - 1]
+            
+            // Calculate the time difference between current and previous predictions
+            let timeDifference = currentPrediction.date.timeIntervalSince(previousPrediction.date)
+            
+            // Calculate the number of 5-minute intervals between predictions
+            let numberOfIntervals = Int(timeDifference / (5 * 60)) - 1
+            
+            // Perform linear interpolation
+            for j in 1...numberOfIntervals {
+                let interpolationFactor = Double(j) / Double(numberOfIntervals + 1)
+                let interpolatedValue = (1 - interpolationFactor) * previousPrediction.value + interpolationFactor * currentPrediction.value
+                
+                let interpolatedSample = BloodGlucoseModel(
+                    id: UUID(),
+                    date: previousPrediction.date.addingTimeInterval(5 * 60 * Double(j)),
+                    value: interpolatedValue
+                )
+                interpolatedSamples.append(interpolatedSample)
+            }
+            // Add the current prediction
+            interpolatedSamples.append(currentPrediction)
+        }
+        return interpolatedSamples
     }
     
     private func roundedValue(value: Double, decimals: Double) -> Double {

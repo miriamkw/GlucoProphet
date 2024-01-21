@@ -136,6 +136,7 @@ struct MainView: View {
                     }
                 }
                 Section {
+                    /*
                     VStack {
                         // Change basal rate insulin slider
                         HStack {
@@ -144,11 +145,11 @@ struct MainView: View {
                             Text("\(controller.tempBasal, specifier: "%.1f") U/hr")
                         }
                         Slider(value: $controller.tempBasal, in: 0...2.0, step: 0.1)
-                    }
+                    }*/
                     VStack {
                         // Add bolus insulin slider
                         HStack {
-                            Text("Add bolus dose")
+                            Text("Add insulin dose")
                             Spacer()
                             Text("\(controller.addedBolus, specifier: "%.1f") U")
                         }
@@ -162,6 +163,15 @@ struct MainView: View {
                             Text("\(controller.addedCarbs, specifier: "%.0f") g")
                         }
                         Slider(value: $controller.addedCarbs, in: 0...100, step: 5)
+                    }
+                    VStack {
+                        // Add picker menu for different prediction models
+                        Picker("Select Model", selection: $controller.selectedModel) {
+                            ForEach(["RidgeRegressor", "LSTM"], id: \.self) { model in
+                                Text(model)
+                            }
+                        }
+                        .pickerStyle(MenuPickerStyle())
                     }
                 }
             }
