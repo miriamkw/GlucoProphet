@@ -8,6 +8,7 @@
 import HealthKit
 import CoreML
 import CoreMotion
+import RealmSwift
 
 class MainViewController: NSObject, ObservableObject {
     
@@ -73,6 +74,16 @@ class MainViewController: NSObject, ObservableObject {
     ///
     func fetchData(completion: @escaping () -> Swift.Void) {
         // DispatchGroup makes sure all values from HealthKit are fetched before we call the first prediction
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL)
+        do {
+            let realm = try Realm()
+        } catch {
+            print("Error initialising new realm, \(error)")
+        }
+        
+        
+        
                 
         let group = DispatchGroup()
                 
