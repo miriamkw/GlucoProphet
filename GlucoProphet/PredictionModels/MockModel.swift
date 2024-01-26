@@ -33,7 +33,7 @@ class MockModel: BaseModel {
                 var prediction = newestBgSample.value - basalFactor - bolusFactor + carbFactor
                 prediction = (prediction) < 2.0 ? 2.0 : prediction
                 
-                var newSample = BloodGlucoseModel()
+                let newSample = BloodGlucoseModel()
                 newSample.id = UUID()
                 newSample.date = newestBgSample.date.addingTimeInterval(60*5*Double(i + 1))
                 newSample.value = prediction

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0603169A2B63C22400CB1AEF /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060316992B63C22400CB1AEF /* RealmManager.swift */; };
+		0603169C2B64148200CB1AEF /* CarbohydrateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0603169B2B64148200CB1AEF /* CarbohydrateModel.swift */; };
+		0603169E2B64175500CB1AEF /* InsulinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0603169D2B64175500CB1AEF /* InsulinModel.swift */; };
 		068E1CB12B46FCE800CCF8E4 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E1CB02B46FCE800CCF8E4 /* BaseModel.swift */; };
 		068E1CB32B46FE2B00CCF8E4 /* MockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E1CB22B46FE2B00CCF8E4 /* MockModel.swift */; };
 		06E120012B5A775A009A3AF7 /* LSTM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E120002B5A775A009A3AF7 /* LSTM.swift */; };
@@ -55,6 +57,8 @@
 
 /* Begin PBXFileReference section */
 		060316992B63C22400CB1AEF /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		0603169B2B64148200CB1AEF /* CarbohydrateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbohydrateModel.swift; sourceTree = "<group>"; };
+		0603169D2B64175500CB1AEF /* InsulinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsulinModel.swift; sourceTree = "<group>"; };
 		068E1CB02B46FCE800CCF8E4 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		068E1CB22B46FE2B00CCF8E4 /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
 		06E120002B5A775A009A3AF7 /* LSTM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTM.swift; sourceTree = "<group>"; };
@@ -221,6 +225,8 @@
 				06EA7E9A2ADC5D6700752533 /* BloodGlucoseModel.swift */,
 				06EA7E9C2ADC5D7100752533 /* CarbohydrateStore.swift */,
 				06EA7E9E2ADC5D7800752533 /* InsulinStore.swift */,
+				0603169B2B64148200CB1AEF /* CarbohydrateModel.swift */,
+				0603169D2B64175500CB1AEF /* InsulinModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -411,7 +417,9 @@
 				06E120652B5C75C3009A3AF7 /* lstm__me__30.mlpackage in Sources */,
 				06E1206D2B5C75C3009A3AF7 /* lstm__me__135.mlpackage in Sources */,
 				06E120552B5C3E7B009A3AF7 /* ridge__me__30.mlpackage in Sources */,
+				0603169C2B64148200CB1AEF /* CarbohydrateModel.swift in Sources */,
 				06E120512B5C3E7B009A3AF7 /* ridge__me__150.mlpackage in Sources */,
+				0603169E2B64175500CB1AEF /* InsulinModel.swift in Sources */,
 				06E513102B4C3A400003A570 /* RidgeRegressor.swift in Sources */,
 				06EA7E9B2ADC5D6700752533 /* BloodGlucoseModel.swift in Sources */,
 				06EA7E9F2ADC5D7800752533 /* InsulinStore.swift in Sources */,
