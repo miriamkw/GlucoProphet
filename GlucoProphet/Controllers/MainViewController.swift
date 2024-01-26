@@ -19,6 +19,8 @@ class MainViewController: NSObject, ObservableObject {
             // After setting pastValues, call fetchData on the main thread
             DispatchQueue.main.async {
                 self.fetchData()
+                self.fetchPredictions()
+                self.setLollipopValue()
             }
         }
     }
@@ -78,14 +80,13 @@ class MainViewController: NSObject, ObservableObject {
                 
         // First group is fetching glucose values, make sure it finished before the first prediction is called
         
-        /*
         // Get relevant insulin values
         group.enter()
         self.insulinStore.starObserver(completion: {
             group.leave()
         }, updateHandler: {
             self.fetchPredictions()
-        })*/
+        })
         
         // Get relevant carbohydrate consumptions
         group.enter()
@@ -99,16 +100,12 @@ class MainViewController: NSObject, ObservableObject {
         self.bgStore.startObserver(completion: {
             self.setLollipopValue()
             group.leave()
-        }, updateHandler: {
-            self.realmManager.printAll(BloodGlucoseModel.self)
-            
+        }, updateHandler: {            
             self.fetchPredictions()
             // Move Lollipop when there is a new sample
             self.setLollipopValue()
         })
 
-        // TODO: This should be refetched more often than on launch of the application
-        
         // Make predictions after we made sure that the glucose, carbs and insulin samples are collected
         group.notify(queue: DispatchQueue.main) {
             self.fetchPredictions()
