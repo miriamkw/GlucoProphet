@@ -6,9 +6,18 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct BloodGlucoseModel: Identifiable {
+struct BloodGlucoseModelOld: Identifiable {
     let id: UUID
     let date: Date
     let value: Double
 }
+
+class BloodGlucoseModel: Object, Identifiable {
+    @Persisted(primaryKey: true) var id: UUID
+    @Persisted var date: Date
+    @Persisted var value: Double
+}
+
+

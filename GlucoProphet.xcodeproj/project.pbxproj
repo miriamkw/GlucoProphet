@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0603169A2B63C22400CB1AEF /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060316992B63C22400CB1AEF /* RealmManager.swift */; };
 		068E1CB12B46FCE800CCF8E4 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E1CB02B46FCE800CCF8E4 /* BaseModel.swift */; };
 		068E1CB32B46FE2B00CCF8E4 /* MockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E1CB22B46FE2B00CCF8E4 /* MockModel.swift */; };
 		06E120012B5A775A009A3AF7 /* LSTM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E120002B5A775A009A3AF7 /* LSTM.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		060316992B63C22400CB1AEF /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		068E1CB02B46FCE800CCF8E4 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		068E1CB22B46FE2B00CCF8E4 /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
 		06E120002B5A775A009A3AF7 /* LSTM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTM.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			children = (
 				06EA7EA12ADC5ECC00752533 /* HealthKitSetupAssistant.swift */,
 				06EA7EA32ADC5ED700752533 /* HealthKitDataStore.swift */,
+				060316992B63C22400CB1AEF /* RealmManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				06EA7EA42ADC5ED700752533 /* HealthKitDataStore.swift in Sources */,
 				06EA7E992ADC5D5A00752533 /* BloodGlucoseStore.swift in Sources */,
 				06E120662B5C75C3009A3AF7 /* lstm__me__165.mlpackage in Sources */,
+				0603169A2B63C22400CB1AEF /* RealmManager.swift in Sources */,
 				06E120502B5C3E7B009A3AF7 /* ridge__me__165.mlpackage in Sources */,
 				06E120682B5C75C3009A3AF7 /* lstm__me__60.mlpackage in Sources */,
 				06E120012B5A775A009A3AF7 /* LSTM.swift in Sources */,
