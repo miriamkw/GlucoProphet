@@ -88,8 +88,6 @@ class LSTM: BaseModel {
                 multiArray[i * 3 + 2] = NSNumber(value: insulin)
             }
             
-            let count = multiArray.count
-
             let currentDate = recentBloodGlucoseValues[regressionLength - 1].date
             
             // Make the prediction
