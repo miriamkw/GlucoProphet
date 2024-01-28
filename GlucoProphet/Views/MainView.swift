@@ -7,17 +7,24 @@
 
 import SwiftUI
 import Charts
+import RealmSwift
 
 struct MainView: View {
     
     @EnvironmentObject var controller: MainViewController
-
+    
+    @ObservedResults(BloodGlucoseModel.self,
+                     // filter: NSPredicate(format: "date <= %@", Date() as NSDate),
+                     sortDescriptor: SortDescriptor(keyPath: "date", ascending: true)) var pastValues
+    
+    // TODO: Fix the selected element
+    
     var body: some View {
         NavigationView {
             List {
                 Section {
                     Chart {
-                        ForEach(controller.pastValues, id: \.id) { series in
+                        ForEach(pastValues, id: \.id) { series in
                             AreaMark(
                                 x: .value("Date", series.date),
                                 y: .value("Glucose value", series.value)
@@ -190,7 +197,7 @@ struct MainView: View {
             // Find the closest date element.
             var minDistance: TimeInterval = .infinity
             var index: Int? = nil
-            let completeList: [BloodGlucoseModel] = controller.pastValues + controller.predictedValues
+            let completeList: [BloodGlucoseModel] = pastValues + controller.predictedValues
             for dataIndex in completeList.indices {
                 let nthDataDistance = completeList[dataIndex].date.distance(to: date)
                 if abs(nthDataDistance) < minDistance {

@@ -8,28 +8,30 @@
 import HealthKit
 import CoreML
 import CoreMotion
+import RealmSwift
 
 class MainViewController: NSObject, ObservableObject {
-    
+        
     override init() {
         super.init()
-        
+
         DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
-            self.fetchData {
-                DispatchQueue.main.async {
-                    self.selectedElement = self.pastValues.last
-                }
+            // After setting pastValues, call fetchData on the main thread
+            DispatchQueue.main.async {
+                self.fetchData()
+                self.fetchPredictions()
+                self.setLollipopValue()
             }
         }
     }
     
     @Published var selectedElement: BloodGlucoseModel?
-    @Published var pastValues = [BloodGlucoseModel]()
     @Published var predictedValues = [BloodGlucoseModel]()
         
     private let bgStore = BloodGlucoseStore.shared
     private let insulinStore = InsulinStore.shared
     private let carbStore = CarbohydrateStore.shared
+    private let realmManager = RealmManager.shared
     
     // private let predictionModel = MockModel(identifier: "MockModel")
     private let ridge = RidgeRegressor(identifier: "RidgeRegressor")
@@ -71,9 +73,9 @@ class MainViewController: NSObject, ObservableObject {
     /// 3) When all the DispatchGroups are completed, the .notify method is called, and the first predictions are made
     /// 4) At the end, the activity-classifier is started
     ///
-    func fetchData(completion: @escaping () -> Swift.Void) {
+    func fetchData() {
         // DispatchGroup makes sure all values from HealthKit are fetched before we call the first prediction
-                
+        
         let group = DispatchGroup()
                 
         // First group is fetching glucose values, make sure it finished before the first prediction is called
@@ -96,81 +98,91 @@ class MainViewController: NSObject, ObservableObject {
         
         group.enter()
         self.bgStore.startObserver(completion: {
-            DispatchQueue.main.async {
-                self.pastValues = self.bgStore.bgSamples
-            }
+            self.setLollipopValue()
             group.leave()
-        }, updateHandler: {
+        }, updateHandler: {            
             self.fetchPredictions()
-            if let newestBgSample = self.bgStore.bgSamples.last {
-                // Move Lollipop when there is a new sample
-                DispatchQueue.main.async {
-                    self.pastValues = self.bgStore.bgSamples
-                    self.selectedElement = newestBgSample
-                }
-            }
+            // Move Lollipop when there is a new sample
+            self.setLollipopValue()
         })
 
-        // TODO: This should be refetched more often than on launch of the application
-        
         // Make predictions after we made sure that the glucose, carbs and insulin samples are collected
         group.notify(queue: DispatchQueue.main) {
             self.fetchPredictions()
-            completion()
         }
     }
     
     /// This method calculates new blood glucose predictions based on the most recent stored data inputs.
     /// This method must always be called on the main thread, because it updates the UI.
     private func fetchPredictions() {
-        if let newestBgSample = self.bgStore.bgSamples.last {
-            DispatchQueue.main.async {
-                var predictions: [BloodGlucoseModel] = []
-                if self.selectedModel == "LSTM" {
-                    predictions = self.lstm.predict(tempBasal: self.tempBasal, addedBolus: self.addedBolus, addedCarbs: self.addedCarbs)
-                } else {
-                    predictions = self.ridge.predict(tempBasal: self.tempBasal, addedBolus: self.addedBolus, addedCarbs: self.addedCarbs)
-                }
-                // Add linear interpolation between each predicted sample so that there is a predicted measurement for every 5-minute interval
-                self.predictedValues = self.generateInterpolatedSamples(newestBgSample: newestBgSample, predictions: predictions)
+        DispatchQueue.main.async {
+            var predictions: [BloodGlucoseModel] = []
+            if self.selectedModel == "LSTM" {
+                predictions = self.lstm.predict(tempBasal: self.tempBasal, addedBolus: self.addedBolus, addedCarbs: self.addedCarbs)
+            } else {
+                predictions = self.ridge.predict(tempBasal: self.tempBasal, addedBolus: self.addedBolus, addedCarbs: self.addedCarbs)
             }
+            // Add linear interpolation between each predicted sample so that there is a predicted measurement for every 5-minute interval
+            self.predictedValues = self.generateInterpolatedSamples(predictions: predictions)
         }
     }
     
     /// Generate linearnly interpolated samples with 5-minute intervals between each predicted value.
-    func generateInterpolatedSamples(newestBgSample: BloodGlucoseModel, predictions: [BloodGlucoseModel]) -> [BloodGlucoseModel] {
+    func generateInterpolatedSamples(predictions: [BloodGlucoseModel]) -> [BloodGlucoseModel] {
         var interpolatedSamples = [BloodGlucoseModel]()
-
-        for i in 0..<predictions.count {
-            let currentPrediction = predictions[i]
-            let previousPrediction = i == 0 ? newestBgSample : predictions[i - 1]
-            
-            // Calculate the time difference between current and previous predictions
-            let timeDifference = currentPrediction.date.timeIntervalSince(previousPrediction.date)
-            
-            // Calculate the number of 5-minute intervals between predictions
-            let numberOfIntervals = Int(timeDifference / (5 * 60)) - 1
-            
-            // Perform linear interpolation
-            for j in 1...numberOfIntervals {
-                let interpolationFactor = Double(j) / Double(numberOfIntervals + 1)
-                let interpolatedValue = (1 - interpolationFactor) * previousPrediction.value + interpolationFactor * currentPrediction.value
-                
-                let interpolatedSample = BloodGlucoseModel(
-                    id: UUID(),
-                    date: previousPrediction.date.addingTimeInterval(5 * 60 * Double(j)),
-                    value: interpolatedValue
-                )
-                interpolatedSamples.append(interpolatedSample)
+        
+        do {
+            let realm = try Realm()
+            guard let newestBgSample = realm.objects(bgStore.realmObjectType).sorted(byKeyPath: "date", ascending: true).last else {
+                return []
             }
-            // Add the current prediction
-            interpolatedSamples.append(currentPrediction)
+            
+            for i in 0..<predictions.count {
+                let currentPrediction = predictions[i]
+                let previousPrediction = i == 0 ? newestBgSample : predictions[i - 1]
+                
+                // Calculate the time difference between current and previous predictions
+                let timeDifference = currentPrediction.date.timeIntervalSince(previousPrediction.date)
+                
+                // Calculate the number of 5-minute intervals between predictions
+                let numberOfIntervals = Int(timeDifference / (5 * 60)) - 1
+                
+                // Perform linear interpolation
+                for j in 1...numberOfIntervals {
+                    let interpolationFactor = Double(j) / Double(numberOfIntervals + 1)
+                    let interpolatedValue = (1 - interpolationFactor) * previousPrediction.value + interpolationFactor * currentPrediction.value
+                    
+                    let interpolatedSample = BloodGlucoseModel()
+                    interpolatedSample.id = UUID()
+                    interpolatedSample.date = previousPrediction.date.addingTimeInterval(5 * 60 * Double(j))
+                    interpolatedSample.value = interpolatedValue
+
+                    interpolatedSamples.append(interpolatedSample)
+                }
+                // Add the current prediction
+                interpolatedSamples.append(currentPrediction)
+            }
+        } catch {
+            print("Error initialising new realm, \(error)")
         }
         return interpolatedSamples
     }
     
     private func roundedValue(value: Double, decimals: Double) -> Double {
         return Double(round(pow(10, decimals) * value) / pow(10, decimals))
+    }
+    
+    private func setLollipopValue() {
+        DispatchQueue.main.async {
+            do {
+                let realm = try Realm()
+                if let newestBgSample = realm.objects(self.bgStore.realmObjectType).sorted(byKeyPath: "date", ascending: true).last {
+                    self.selectedElement = newestBgSample
+                }
+            } catch {
+                print("Error initialising new realm, \(error)")
+            }
+        }
     }
 }
 

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0603169A2B63C22400CB1AEF /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060316992B63C22400CB1AEF /* RealmManager.swift */; };
+		0603169C2B64148200CB1AEF /* CarbohydrateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0603169B2B64148200CB1AEF /* CarbohydrateModel.swift */; };
+		0603169E2B64175500CB1AEF /* InsulinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0603169D2B64175500CB1AEF /* InsulinModel.swift */; };
 		068E1CB12B46FCE800CCF8E4 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E1CB02B46FCE800CCF8E4 /* BaseModel.swift */; };
 		068E1CB32B46FE2B00CCF8E4 /* MockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E1CB22B46FE2B00CCF8E4 /* MockModel.swift */; };
 		06E120012B5A775A009A3AF7 /* LSTM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E120002B5A775A009A3AF7 /* LSTM.swift */; };
@@ -49,9 +52,13 @@
 		06EA7EA42ADC5ED700752533 /* HealthKitDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7EA32ADC5ED700752533 /* HealthKitDataStore.swift */; };
 		06EA7EA72ADC5F6C00752533 /* HKUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA7EA62ADC5F6C00752533 /* HKUnit.swift */; };
 		06EA7EA92ADC67C300752533 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 06EA7EA82ADC67C300752533 /* .gitignore */; };
+		58D4814ADD3968C2415F0DA4 /* Pods_GlucoProphet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3342D5C75830B30A282E29BC /* Pods_GlucoProphet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		060316992B63C22400CB1AEF /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		0603169B2B64148200CB1AEF /* CarbohydrateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbohydrateModel.swift; sourceTree = "<group>"; };
+		0603169D2B64175500CB1AEF /* InsulinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsulinModel.swift; sourceTree = "<group>"; };
 		068E1CB02B46FCE800CCF8E4 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		068E1CB22B46FE2B00CCF8E4 /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
 		06E120002B5A775A009A3AF7 /* LSTM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTM.swift; sourceTree = "<group>"; };
@@ -97,6 +104,9 @@
 		06EA7EA32ADC5ED700752533 /* HealthKitDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitDataStore.swift; sourceTree = "<group>"; };
 		06EA7EA62ADC5F6C00752533 /* HKUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKUnit.swift; sourceTree = "<group>"; };
 		06EA7EA82ADC67C300752533 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		3342D5C75830B30A282E29BC /* Pods_GlucoProphet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GlucoProphet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BC2F30A3D29F5CB2545DCF5 /* Pods-GlucoProphet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlucoProphet.release.xcconfig"; path = "Target Support Files/Pods-GlucoProphet/Pods-GlucoProphet.release.xcconfig"; sourceTree = "<group>"; };
+		6CA6617F6B1380827C791161 /* Pods-GlucoProphet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlucoProphet.debug.xcconfig"; path = "Target Support Files/Pods-GlucoProphet/Pods-GlucoProphet.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58D4814ADD3968C2415F0DA4 /* Pods_GlucoProphet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +180,8 @@
 				06E1206E2B5D3C09009A3AF7 /* figures */,
 				06EA7E832ADC47F100752533 /* GlucoProphet */,
 				06EA7E822ADC47F100752533 /* Products */,
+				503891A17C19623BEBC631D2 /* Pods */,
+				DD871A333295E5847EA8F852 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,6 +225,8 @@
 				06EA7E9A2ADC5D6700752533 /* BloodGlucoseModel.swift */,
 				06EA7E9C2ADC5D7100752533 /* CarbohydrateStore.swift */,
 				06EA7E9E2ADC5D7800752533 /* InsulinStore.swift */,
+				0603169B2B64148200CB1AEF /* CarbohydrateModel.swift */,
+				0603169D2B64175500CB1AEF /* InsulinModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -237,6 +252,7 @@
 			children = (
 				06EA7EA12ADC5ECC00752533 /* HealthKitSetupAssistant.swift */,
 				06EA7EA32ADC5ED700752533 /* HealthKitDataStore.swift */,
+				060316992B63C22400CB1AEF /* RealmManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -249,6 +265,23 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		503891A17C19623BEBC631D2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6CA6617F6B1380827C791161 /* Pods-GlucoProphet.debug.xcconfig */,
+				3BC2F30A3D29F5CB2545DCF5 /* Pods-GlucoProphet.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DD871A333295E5847EA8F852 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3342D5C75830B30A282E29BC /* Pods_GlucoProphet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -256,9 +289,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06EA7E902ADC47F200752533 /* Build configuration list for PBXNativeTarget "GlucoProphet" */;
 			buildPhases = (
+				F3061868F155780D3DA36A3E /* [CP] Check Pods Manifest.lock */,
 				06EA7E7D2ADC47F100752533 /* Sources */,
 				06EA7E7E2ADC47F100752533 /* Frameworks */,
 				06EA7E7F2ADC47F100752533 /* Resources */,
+				CD15A92F529FFDB9D435F21D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -316,6 +351,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CD15A92F529FFDB9D435F21D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GlucoProphet/Pods-GlucoProphet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GlucoProphet/Pods-GlucoProphet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GlucoProphet/Pods-GlucoProphet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3061868F155780D3DA36A3E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GlucoProphet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		06EA7E7D2ADC47F100752533 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -340,13 +417,16 @@
 				06E120652B5C75C3009A3AF7 /* lstm__me__30.mlpackage in Sources */,
 				06E1206D2B5C75C3009A3AF7 /* lstm__me__135.mlpackage in Sources */,
 				06E120552B5C3E7B009A3AF7 /* ridge__me__30.mlpackage in Sources */,
+				0603169C2B64148200CB1AEF /* CarbohydrateModel.swift in Sources */,
 				06E120512B5C3E7B009A3AF7 /* ridge__me__150.mlpackage in Sources */,
+				0603169E2B64175500CB1AEF /* InsulinModel.swift in Sources */,
 				06E513102B4C3A400003A570 /* RidgeRegressor.swift in Sources */,
 				06EA7E9B2ADC5D6700752533 /* BloodGlucoseModel.swift in Sources */,
 				06EA7E9F2ADC5D7800752533 /* InsulinStore.swift in Sources */,
 				06EA7EA42ADC5ED700752533 /* HealthKitDataStore.swift in Sources */,
 				06EA7E992ADC5D5A00752533 /* BloodGlucoseStore.swift in Sources */,
 				06E120662B5C75C3009A3AF7 /* lstm__me__165.mlpackage in Sources */,
+				0603169A2B63C22400CB1AEF /* RealmManager.swift in Sources */,
 				06E120502B5C3E7B009A3AF7 /* ridge__me__165.mlpackage in Sources */,
 				06E120682B5C75C3009A3AF7 /* lstm__me__60.mlpackage in Sources */,
 				06E120012B5A775A009A3AF7 /* LSTM.swift in Sources */,
@@ -403,7 +483,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -465,7 +545,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -483,6 +563,7 @@
 		};
 		06EA7E912ADC47F200752533 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CA6617F6B1380827C791161 /* Pods-GlucoProphet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -523,6 +604,7 @@
 		};
 		06EA7E922ADC47F200752533 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BC2F30A3D29F5CB2545DCF5 /* Pods-GlucoProphet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

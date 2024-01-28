@@ -8,51 +8,50 @@
 import HealthKit
 
 class BloodGlucoseStore : ObservableObject {
-    
-    var bgSamples = [BloodGlucoseModel]()
-    
+        
     private let healthKitDataStore = HealthKitDataStore.shared
+    private let realmManager = RealmManager.shared
     
     // Create singleton instance
     static let shared = BloodGlucoseStore()
+    
+    let realmObjectType = BloodGlucoseModel.self
+    
+    // Define time horizon for blood glucose storage (in seconds)
     private let timeInterval = 60*60
     
     func startObserver(completion: @escaping () -> Swift.Void, updateHandler: @escaping () -> Swift.Void) {
         self.healthKitDataStore.getSamples(for: getGlucoseLevelSampleType(), start: Date().addingTimeInterval(-TimeInterval(timeInterval)), completion: { (samples, deleted) in
-            self.setBloodGlucoseValues(samples: samples, deleted: deleted) {
-                completion()
-            }
+            self.updateBloodGlucoseValuesRealm(samples: samples, deleted: deleted)
+            completion()
         }, updateHandler: { (samples, deleted) in
-            self.setBloodGlucoseValues(samples: samples, deleted: deleted) {
-                updateHandler()
-            }
-            
+            self.updateBloodGlucoseValuesRealm(samples: samples, deleted: deleted)
+            updateHandler()
         })
     }
     
-    private func setBloodGlucoseValues(samples: [HKQuantitySample], deleted: [HKDeletedObject], completion: @escaping () -> Swift.Void) {
-        var mostRecentSamples = bgSamples
-        // Filter out glucose values that no longer are relevant
-        mostRecentSamples.removeAll { sample in
-            sample.date < Date().addingTimeInterval(-TimeInterval(timeInterval))
+    private func updateBloodGlucoseValuesRealm(samples: [HKQuantitySample], deleted: [HKDeletedObject]) {
+        
+        // Delete old values in Realm
+        realmManager.deleteObjectsOlderThanTimeInterval(realmObjectType, timeInterval: Double(timeInterval))
+        
+        // Delete values in Realm if deleted in HealthKit
+        for sample in deleted {
+            realmManager.deleteObjectWithUUID(realmObjectType, uuid: sample.uuid)
         }
-        // Add new samples
+        
+        // Add new samples in Realm
         for sample in samples {
-            let value = BloodGlucoseModel(id: sample.uuid, date: sample.startDate, value: sample.quantity.doubleValue(for: .millimolesPerLiter))
-            mostRecentSamples.append(value)
-        }
-        // Remove deleted samples
-        mostRecentSamples.removeAll { sample in
-            deleted.contains { deletedObject in
-                deletedObject.uuid == sample.id
+            let isRecent = sample.startDate > Date().addingTimeInterval(-TimeInterval(timeInterval))
+            let existsRealmObject = realmManager.existsRealmObject(realmObjectType, uuid: sample.uuid)
+            if (isRecent && !existsRealmObject) {
+                let newData = BloodGlucoseModel()
+                newData.id = sample.uuid
+                newData.date = sample.startDate
+                newData.value = sample.quantity.doubleValue(for: .millimolesPerLiter)
+                realmManager.write(newData)
             }
         }
-        // Sort the values by date
-        mostRecentSamples = mostRecentSamples.sorted { value1, value2 in
-            value1.date < value2.date
-        }
-        self.bgSamples = mostRecentSamples
-        completion()
     }
     
     func getGlucoseLevelSampleType() -> HKSampleType {

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 // Example implementation of a class conforming to BaseModel
 class MockModel: BaseModel {
@@ -19,7 +20,11 @@ class MockModel: BaseModel {
     func predict(tempBasal: Double, addedBolus: Double, addedCarbs: Double) -> [BloodGlucoseModel] {
         var predictions = [BloodGlucoseModel]()
         
-        if let newestBgSample = bgStore.bgSamples.last {
+        do {
+            let realm = try Realm()
+            guard let newestBgSample = realm.objects(bgStore.realmObjectType).sorted(byKeyPath: "date", ascending: true).last else {
+                return []
+            }
             for i in 0..<24 {
                 let basalFactor = tempBasal * Double(i) * 0.1
                 let bolusFactor = addedBolus * Double(i) * 0.1
@@ -28,12 +33,15 @@ class MockModel: BaseModel {
                 var prediction = newestBgSample.value - basalFactor - bolusFactor + carbFactor
                 prediction = (prediction) < 2.0 ? 2.0 : prediction
                 
-                let newSample = BloodGlucoseModel(
-                    id: UUID(),
-                    date: newestBgSample.date.addingTimeInterval(60*5*Double(i + 1)),
-                    value: prediction)
+                let newSample = BloodGlucoseModel()
+                newSample.id = UUID()
+                newSample.date = newestBgSample.date.addingTimeInterval(60*5*Double(i + 1))
+                newSample.value = prediction
+
                 predictions.append(newSample)
             }
+        } catch {
+            print("Error initialising new realm, \(error)")
         }
         return predictions
     }
