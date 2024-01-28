@@ -7,6 +7,16 @@ Model inputs can be adjusted in the UI, to explore and observe how features affe
 | ![Demo carbs](figures/demo_menu.PNG) | ![Demo carbs](figures/demo_carbs.PNG) | ![Demo carbs](figures/demo_carbs.PNG) |
 |--------------------------------------|---------------------------------------|---------------------------------------|
 
+
+## Citation 
+
+If you found this work helpful, please cite this work: 
+
+[Mobile Software Development Kit for Real Time Multivariate Blood Glucose Prediction](https://ieeexplore.ieee.org/document/10379644)
+
+Thank you!
+
+
 ## Table of Contents
 
 1. [How to Add Custom Models to GlucoProphet](#how-to-add-custom-models-to-glucoprophet)
