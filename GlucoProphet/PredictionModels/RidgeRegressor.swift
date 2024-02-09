@@ -104,7 +104,6 @@ class RidgeRegressor: BaseModel {
         } catch {
             print("Error initialising new realm, \(error)")
         }
-        
         return predictions
     }
     
