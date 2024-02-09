@@ -24,6 +24,7 @@ class RidgeRegressorNew: BaseModel {
     func predict(tempBasal: Double, addedBolus: Double, addedCarbs: Double) -> [BloodGlucoseModel] {
         var predictions = [BloodGlucoseModel]()
         let regressionLength = 6
+        let basal_rate = 0.8
         
         do {
             let realm = try Realm()
@@ -82,11 +83,16 @@ class RidgeRegressorNew: BaseModel {
                 for j in 0..<coefficientRow.count {
                                         
                     // Access the corresponding value using key path and Mirror
-                    guard let inputValue = Mirror(reflecting: inputValues).children.first(where: { $0.label == feature_names[j] })?.value as? Double else {
-                        print("Input value for key \(feature_names[j]) is not found")
+                    if let inputValue = Mirror(reflecting: inputValues).children.first(where: { $0.label == feature_names[j] })?.value as? Double {
+                        result += coefficientRow[j] * inputValue
+                    } else if feature_names[j].contains("insulin_what_if") {
+                        result += coefficientRow[j] * (basal_rate / 12)
+                    } else if feature_names[j].contains("carbs_what_if") {
+                        result += coefficientRow[j] * 0
+                    } else {
+                        print("Input value key not found")
                         return []
                     }
-                    result += coefficientRow[j] * inputValue
                 }
                 let newPrediction = getPredictionSample(prediction: result + intercepts[iteration], date: currentDate, prediction_horizon: 5 * Double(iteration + 1))
                 predictions.append(newPrediction)
@@ -108,7 +114,7 @@ class RidgeRegressorNew: BaseModel {
     
     // Load model weights from file
     func loadModelWeights() -> [String: Any] {        
-        if let fileURL = Bundle.main.url(forResource: "ridge_multioutput__me_multioutput__180", withExtension: "json") {
+        if let fileURL = Bundle.main.url(forResource: "ridge_multioutput__me_multioutput__180__what_if", withExtension: "json") {
             let weightsData = try! Data(contentsOf: fileURL)
             let weights = try! JSONSerialization.jsonObject(with: weightsData, options: []) as! [String: Any]
             return weights
