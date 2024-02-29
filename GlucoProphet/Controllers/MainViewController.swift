@@ -35,9 +35,7 @@ class MainViewController: NSObject, ObservableObject {
     
     // private let predictionModel = MockModel(identifier: "MockModel")
     private let ridge = RidgeRegressor(identifier: "RidgeRegressor")
-    private let ridge_new = RidgeRegressorNew(identifier: "RidgeRegressorNew")
     private let lstm = LSTM(identifier: "LSTM")
-    private let lstm_new = LSTMNew(identifier: "LSTMNew")
         
     // UI state variables
     @Published var tempBasal = 0.9 {
@@ -122,10 +120,6 @@ class MainViewController: NSObject, ObservableObject {
             var predictions: [BloodGlucoseModel] = []
             if self.selectedModel == "LSTM" {
                 predictions = self.lstm.predict(tempBasal: self.tempBasal, addedBolus: self.addedBolus, addedCarbs: self.addedCarbs)
-            } else if self.selectedModel == "LSTMNew" {
-                predictions = self.lstm_new.predict(tempBasal: self.tempBasal, addedBolus: self.addedBolus, addedCarbs: self.addedCarbs)
-            } else if self.selectedModel == "RidgeRegressorNew" {
-                predictions = self.ridge_new.predict(tempBasal: self.tempBasal, addedBolus: self.addedBolus, addedCarbs: self.addedCarbs)
             } else {
                 predictions = self.ridge.predict(tempBasal: self.tempBasal, addedBolus: self.addedBolus, addedCarbs: self.addedCarbs)
             }
