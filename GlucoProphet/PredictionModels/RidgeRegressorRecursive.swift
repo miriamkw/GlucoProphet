@@ -1,5 +1,5 @@
 //
-//  RidgeRegressorNew.swift
+//  RidgeRegressorRecursive.swift
 //  GlucoProphet
 //
 //  Created by Miriam K. Wolff on 08/02/2024.
@@ -10,7 +10,7 @@ import CoreML
 import RealmSwift
 
 // Example implementation of a class conforming to BaseModel
-class RidgeRegressorNew: BaseModel {
+class RidgeRegressorRecursive: BaseModel {
     let identifier: String
     
     private let bgStore = BloodGlucoseStore.shared
@@ -67,7 +67,7 @@ class RidgeRegressorNew: BaseModel {
             
             
             let modelWeights = loadModelWeights()
-            guard let coefficients = modelWeights["coefficients"] as? [[Double]], 
+            guard let coefficients = modelWeights["coefficients"] as? [[Double]],
                     let intercepts = modelWeights["intercepts"] as? [Double],
                     let feature_names = modelWeights["feature_names"] as? [String] else {
                 print("Coult not find coefficients, intercepts, or feature names in model weights")
@@ -113,7 +113,7 @@ class RidgeRegressorNew: BaseModel {
     }
     
     // Load model weights from file
-    func loadModelWeights() -> [String: Any] {        
+    func loadModelWeights() -> [String: Any] {
         let fileName = "ridge_multioutput_constrained__me_multioutput__180"
         if let fileURL = Bundle.main.url(forResource: fileName, withExtension: "json") {
             let weightsData = try! Data(contentsOf: fileURL)

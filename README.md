@@ -45,39 +45,38 @@ import coremltools as ct
 import pickle
 import tensorflow as tf
 
-horizons = ['30', '60', '90', '120', '150', '180']
+prediction_horizon = '180'
 models = ['ridge', 'lstm']
 config = 'my_config'
 
-for horizon in horizons:
-    for model in models:
-        file_name = f'{model}__{config}__{horizon}'
-        file_path = f"data/trained_models/{file_name}.pkl"
+for model in models:
+    file_name = f'{model}__{config}__{prediction_horizon}'
+    file_path = f"data/trained_models/{file_name}.pkl"
 
-        # Load model class
-        with open(file_path, 'rb') as file:
-            loaded_class = pickle.load(file)
+    # Load model class
+    with open(file_path, 'rb') as file:
+        loaded_class = pickle.load(file)
 
-        # Code for converting models trained using Scikit Learn
-        if model == 'ridge': 
-            model = loaded_class.model.best_estimator_.named_steps['regressor']
-            feature_names = loaded_class.model.best_estimator_.feature_names_in_
-            mlmodel = ct.converters.sklearn.convert(model,
-                                                    feature_names)
-        
-        # Code for converting models trained using Tensorflow or PyTorch
-        if model == 'lstm':
-            model = tf.keras.models.load_model(loaded_class.model_path,
-                                               custom_objects={"Adam": tf.keras.optimizers.legacy.Adam})
-            mlmodel = ct.convert(model,
-                                 source='tensorflow',
-                                 # source='pytorch',
-                                 )
+    # Code for converting models trained using Scikit Learn
+    if model == 'ridge': 
+        model = loaded_class.model.best_estimator_.named_steps['regressor']
+        feature_names = loaded_class.model.best_estimator_.feature_names_in_
+        mlmodel = ct.converters.sklearn.convert(model,
+                                                feature_names)
+    
+    # Code for converting models trained using Tensorflow or PyTorch
+    if model == 'lstm':
+        model = tf.keras.models.load_model(loaded_class.model_path,
+                                           custom_objects={"Adam": tf.keras.optimizers.legacy.Adam})
+        mlmodel = ct.convert(model,
+                             source='tensorflow',
+                             # source='pytorch',
+                             )
 
-        output_mlmodel_file = f'{file_name}.mlpackage'
-        mlmodel.save(f"data/trained_models/{output_mlmodel_file}")
+    output_mlmodel_file = f'{file_name}.mlpackage'
+    mlmodel.save(f"data/trained_models/{output_mlmodel_file}")
 ```
-You have to modify prediction horizons, model names and configuration name to fit your use case.
+You have to modify prediction horizon, model names and configuration name to fit your use case.
 
 ### Model Implementation
 

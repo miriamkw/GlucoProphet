@@ -174,7 +174,7 @@ struct MainView: View {
                     VStack {
                         // Add picker menu for different prediction models
                         Picker("Select Model", selection: $controller.selectedModel) {
-                            ForEach(["RidgeRegressor", "RidgeRegressorNew", "LSTM"], id: \.self) { model in
+                            ForEach(["RidgeRegressor", "RidgeRegressorNew", "LSTM", "LSTMNew"], id: \.self) { model in
                                 Text(model)
                             }
                         }
