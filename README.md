@@ -4,7 +4,7 @@ GlucoProphet is an iPhone application for testing various Machine Learning blood
 
 Model inputs can be adjusted in the UI, to explore and observe how features affect the forecasting outcomes.
 
-| ![Demo carbs](figures/demo_menu.PNG) | ![Demo carbs](figures/demo_carbs.PNG) | ![Demo carbs](figures/demo_carbs.PNG) |
+| ![Demo carbs](figures/demo_menu.PNG) | ![Demo carbs](figures/demo_carbs.PNG) | ![Demo carbs](figures/demo_insulin.PNG) |
 |--------------------------------------|---------------------------------------|---------------------------------------|
 
 
