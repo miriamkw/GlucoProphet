@@ -63,6 +63,7 @@ class MainViewController: NSObject, ObservableObject {
         didSet {
             if !(selectedModel == oldValue) {
                 fetchPredictions()
+                setLollipopValue()
             }
         }
     }
@@ -147,20 +148,24 @@ class MainViewController: NSObject, ObservableObject {
                 // Calculate the number of 5-minute intervals between predictions
                 let numberOfIntervals = Int(timeDifference / (5 * 60)) - 1
                 
-                // Perform linear interpolation
-                for j in 1...numberOfIntervals {
-                    let interpolationFactor = Double(j) / Double(numberOfIntervals + 1)
-                    let interpolatedValue = (1 - interpolationFactor) * previousPrediction.value + interpolationFactor * currentPrediction.value
-                    
-                    let interpolatedSample = BloodGlucoseModel()
-                    interpolatedSample.id = UUID()
-                    interpolatedSample.date = previousPrediction.date.addingTimeInterval(5 * 60 * Double(j))
-                    interpolatedSample.value = interpolatedValue
-
-                    interpolatedSamples.append(interpolatedSample)
+                if numberOfIntervals > 0 {
+                    // Perform linear interpolation
+                    for j in 1...numberOfIntervals {
+                        let interpolationFactor = Double(j) / Double(numberOfIntervals + 1)
+                        let interpolatedValue = (1 - interpolationFactor) * previousPrediction.value + interpolationFactor * currentPrediction.value
+                        
+                        let interpolatedSample = BloodGlucoseModel()
+                        interpolatedSample.id = UUID()
+                        interpolatedSample.date = previousPrediction.date.addingTimeInterval(5 * 60 * Double(j))
+                        interpolatedSample.value = interpolatedValue
+                        
+                        interpolatedSamples.append(interpolatedSample)
+                    }
+                    // Add the current prediction
+                    interpolatedSamples.append(currentPrediction)
+                } else {
+                    interpolatedSamples.append(currentPrediction)
                 }
-                // Add the current prediction
-                interpolatedSamples.append(currentPrediction)
             }
         } catch {
             print("Error initialising new realm, \(error)")
